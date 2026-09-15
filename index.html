@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Mission Empowering Africa (MEA) | Gender Equality, Peacebuilding & Livelihoods in South Sudan</title>
+<meta name="description" content="Mission Empowering Africa (MEA) works with children, women, youth and grassroots communities across South Sudan on education, peacebuilding, empowerment and food security. RRC Reg. No. 3676." />
+<meta name="keywords" content="Mission Empowering Africa, MEA South Sudan, gender equality, peacebuilding, women empowerment, youth empowerment, food security, Juba NGO" />
+<meta name="author" content="Mission Empowering Africa (MEA)" />
+<link rel="canonical" href="https://www.missionempoweringafrica.org/" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="Mission Empowering Africa | Every person has the power to shape their life" />
+<meta property="og:description" content="Registered South Sudanese NGO working on education, peacebuilding, youth and women empowerment, and food security. RRC Reg. No. 3676." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="assets/misslogo.jpeg" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<!-- Tailwind CSS (CDN) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    primary: '#0F766E',
+                    secondary: '#F59E0B',
+                    accent: '#F97316',
+                    earth: '#B45309',
+                    cream: '#FFFBF0',
+                    light: '#FFFBEB',
+                    dark: '#1F2937',
+                    darkred: '#7F1D1D',
+                },
+                fontFamily: {
+                    heading: ['"Fraunces"', 'Georgia', 'serif'],
+                    body: ['"Inter"', 'system-ui', 'sans-serif'],
+                },
+            }
+        }
+    }
+</script>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Lucide Icons -->
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+        font-family: 'Inter', sans-serif;
+        -webkit-tap-highlight-color: transparent;
+        background-color: #FFFBF0;
+        overflow-x: clip;
+    }
+
+    /* Keeps anchor links from hiding behind the sticky header */
+    section[id] { scroll-margin-top: 5rem; }
+
+    .hero-overlay {
+        background: linear-gradient(125deg, rgba(15, 118, 110, 0.94) 0%, rgba(185, 84, 9, 0.72) 48%, rgba(245, 158, 11, 0.62) 100%);
+    }
+
+    /* Scroll reveal */
+    .reveal {
+        opacity: 0;
+        transform: translateY(22px);
+        transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+
+    /* Nav underline */
+    .nav-link { position: relative; }
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: -5px; left: 50%;
+        width: 0; height: 2px;
+        background: #F59E0B;
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+    }
+    .nav-link:hover::after { width: 100%; }
+
+    /* Soft pulse on the main CTA */
+    .pulse-btn { animation: gentle-pulse 2.6s infinite; }
+    @keyframes gentle-pulse {
+        0%, 100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.42); }
+        50% { box-shadow: 0 0 0 14px rgba(245, 158, 11, 0); }
+    }
+
+    /* Partner ticker */
+    .scrolling-track {
+        display: flex;
+        animation: scroll-left 30s linear infinite;
+    }
+    .scrolling-track:hover { animation-play-state: paused; }
+    @keyframes scroll-left {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+    }
+
+    /* Mobile drawer */
+    .mobile-menu {
+        transform: translateX(100%);
+        transition: transform 0.35s ease;
+    }
+    .mobile-menu.open { transform: translateX(0); }
+
+    /* Card lift */
+    .card-hover {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card-hover:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px -14px rgba(15, 118, 110, 0.22);
+    }
+
+    /* Programme cards */
+    .service-card {
+        background: #fff;
+        border-radius: 1.8rem;
+        overflow: hidden;
+        box-shadow: 0 10px 22px -10px rgba(15, 118, 110, 0.10);
+        border: 1px solid rgba(15, 118, 110, 0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .service-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 22px 44px -14px rgba(15, 118, 110, 0.20);
+    }
+    .service-img {
+        height: 200px;
+        width: 100%;
+        object-fit: cover;
+        transition: transform 0.45s ease;
+    }
+    .service-card:hover .service-img { transform: scale(1.04); }
+
+    .counter-value { font-feature-settings: "tnum"; }
+
+    /* Big outlined number used in the approaches section */
+    .step-number {
+        font-family: 'Fraunces', Georgia, serif;
+        font-weight: 800;
+        font-size: 3.6rem;
+        line-height: 1;
+        color: transparent;
+        -webkit-text-stroke: 1.5px rgba(15, 118, 110, 0.28);
+    }
+
+    /* Logo framing */
+    .logo-badge {
+        background: #fff;
+        border-radius: 0.9rem;
+        padding: 0.25rem;
+        box-shadow: 0 4px 14px -6px rgba(15, 118, 110, 0.25);
+        border: 1px solid rgba(15, 118, 110, 0.10);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .reveal { opacity: 1; transform: none; transition: none; }
+        .scrolling-track, .pulse-btn { animation: none; }
+    }
+</style>
+</head>
+<body class="bg-cream text-gray-700 antialiased">
+
+<!-- ===== TOP BAR ===== -->
+<div class="bg-primary text-white/90 text-sm hidden md:block border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-6 py-2 flex flex-wrap justify-between items-center gap-2">
+        <div class="flex flex-wrap items-center gap-5">
+            <a href="tel:+211922331824" class="flex items-center gap-2 hover:text-accent transition"><i data-lucide="phone" class="w-3.5 h-3.5"></i> 0922 331 824</a>
+            <a href="mailto:infomea200@gmails.com" class="flex items-center gap-2 hover:text-accent transition"><i data-lucide="mail" class="w-3.5 h-3.5"></i> infomea200@gmails.com</a>
+            <span class="flex items-center gap-2 text-white/70"><i data-lucide="badge-check" class="w-3.5 h-3.5"></i> RRC Reg. No. 3676</span>
+        </div>
+        <span class="flex items-center gap-2"><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Juba, South Sudan</span>
+    </div>
+</div>
+
+<!-- ===== NAVIGATION ===== -->
+<header id="navbar" class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100/60 shadow-sm transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-5 md:px-6">
+        <div class="flex items-center justify-between h-16 md:h-20">
+            <a href="#home" class="flex items-center gap-3 group">
+                <div class="logo-badge w-12 h-12 md:w-14 md:h-14 flex items-center justify-center overflow-hidden">
+                    <img src="assets/misslogo.jpeg" alt="Mission Empowering Africa logo" class="w-full h-full object-contain" />
+                </div>
+                <div class="hidden sm:block">
+                    <span class="font-heading text-lg md:text-xl font-bold text-primary leading-none">MEA</span>
+                    <span class="block text-[9px] md:text-[10px] uppercase tracking-wider text-gray-500 mt-0.5">Mission Empowering Africa</span>
+                </div>
+            </a>
+
+            <nav class="hidden lg:flex items-center gap-6 xl:gap-8">
+                <a href="#home" class="nav-link text-sm font-medium text-gray-700 hover:text-secondary transition">Home</a>
+                <a href="#about" class="nav-link text-sm font-medium text-gray-700 hover:text-secondary transition">About</a>
+                <a href="#work" class="nav-link text-sm font-medium text-gray-700 hover:text-secondary transition">Our Work</a>
+                <a href="#approaches" class="nav-link text-sm font-medium text-gray-700 hover:text-secondary transition">Approaches</a>
+                <a href="#gallery" class="nav-link text-sm font-medium text-gray-700 hover:text-secondary transition">Gallery</a>
+                <a href="#support" class="nav-link text-sm font-medium text-gray-700 hover:text-secondary transition">Support Us</a>
+                <a href="#contact" class="nav-link text-sm font-medium text-gray-700 hover:text-secondary transition">Contact</a>
+            </nav>
+
+            <div class="hidden lg:flex items-center gap-4">
+                <a href="#support" class="pulse-btn inline-flex items-center gap-2 bg-accent hover:bg-amber-500 text-white text-sm font-semibold px-6 py-2.5 rounded-xl transition-all shadow-md">
+                    <i data-lucide="hand-heart" class="w-4 h-4"></i> Support Us
+                </a>
+            </div>
+
+            <button id="menu-toggle" class="lg:hidden w-10 h-10 flex items-center justify-center text-primary" aria-label="Open menu">
+                <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- ===== MOBILE MENU ===== -->
+<div id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-[85%] max-w-sm h-full bg-white shadow-2xl z-50 overflow-y-auto">
+    <div class="p-6 flex items-center justify-between border-b border-gray-100">
+        <div class="flex items-center gap-3">
+            <div class="logo-badge w-11 h-11 flex items-center justify-center overflow-hidden">
+                <img src="assets/misslogo.jpeg" alt="MEA logo" class="w-full h-full object-contain" />
+            </div>
+            <span class="font-heading text-lg font-bold text-primary">MEA</span>
+        </div>
+        <button id="menu-close" class="w-10 h-10 flex items-center justify-center text-gray-400 hover:text-primary" aria-label="Close menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+    </div>
+    <div class="px-6 py-6 space-y-4">
+        <a href="#home" class="block text-lg font-semibold text-gray-700 hover:text-secondary mobile-link">Home</a>
+        <a href="#about" class="block text-lg font-semibold text-gray-700 hover:text-secondary mobile-link">About</a>
+        <a href="#work" class="block text-lg font-semibold text-gray-700 hover:text-secondary mobile-link">Our Work</a>
+        <a href="#approaches" class="block text-lg font-semibold text-gray-700 hover:text-secondary mobile-link">Approaches</a>
+        <a href="#gallery" class="block text-lg font-semibold text-gray-700 hover:text-secondary mobile-link">Gallery</a>
+        <a href="#support" class="block text-lg font-semibold text-gray-700 hover:text-secondary mobile-link">Support Us</a>
+        <a href="#faq" class="block text-lg font-semibold text-gray-700 hover:text-secondary mobile-link">FAQ</a>
+        <a href="#contact" class="block text-lg font-semibold text-gray-700 hover:text-secondary mobile-link">Contact</a>
+    </div>
+    <div class="px-6 py-6 space-y-4 border-t border-gray-100">
+        <a href="tel:+211922331824" class="flex items-center gap-3 text-primary font-semibold"><i data-lucide="phone" class="w-5 h-5 text-accent"></i> 0922 331 824</a>
+        <a href="mailto:infomea200@gmails.com" class="flex items-center gap-3 text-primary font-semibold break-all"><i data-lucide="mail" class="w-5 h-5 text-accent shrink-0"></i> infomea200@gmails.com</a>
+        <a href="#support" class="mobile-link block w-full text-center bg-accent hover:bg-amber-500 text-white font-bold py-3 rounded-xl transition">Support Us</a>
+    </div>
+</div>
+<div id="menu-overlay" class="fixed inset-0 bg-black/40 z-40 hidden"></div>
+
+<main>
+
+    <!-- ===== HERO ===== -->
+    <section id="home" class="relative min-h-screen flex items-center overflow-hidden">
+        <img src="assets/miss1.jpeg" alt="Community gathering in South Sudan" class="absolute inset-0 w-full h-full object-cover" loading="eager" />
+        <div class="hero-overlay absolute inset-0"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-6 py-16 md:py-24 w-full">
+            <div class="max-w-3xl text-white">
+                <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-5 py-2 rounded-full mb-6 border border-white/20">
+                    <span class="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
+                    <span class="text-sm">Registered South Sudanese NGO · RRC Reg. No. 3676</span>
+                </div>
+
+                <h1 class="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-5">
+                    Mission<br><span class="text-accent">Empowering Africa</span>
+                </h1>
+
+                <p class="text-base md:text-lg text-white/90 max-w-2xl mb-8 leading-relaxed">
+                    A platform for children, women, youth and grassroots communities in South Sudan — to share information, mobilize resources, and shape their own future.
+                </p>
+
+                <div class="flex flex-wrap gap-4 mb-12">
+                    <a href="#work" class="inline-flex items-center gap-2 bg-accent hover:bg-amber-500 text-white font-semibold px-7 py-3.5 rounded-xl transition pulse-btn shadow-xl">
+                        See Our Work <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#support" class="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-semibold px-7 py-3.5 rounded-xl transition bg-white/10 hover:bg-white/20 backdrop-blur-sm">
+                        Partner With Us
+                    </a>
+                </div>
+
+                <div class="flex flex-wrap gap-6 sm:gap-10 pt-8 border-t border-white/20">
+                    <div>
+                        <div class="text-3xl md:text-4xl font-bold text-accent counter" data-target="4">0</div>
+                        <div class="text-xs text-white/70 uppercase tracking-wider">Thematic Areas</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl md:text-4xl font-bold text-accent counter" data-target="3">0</div>
+                        <div class="text-xs text-white/70 uppercase tracking-wider">Core Approaches</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl md:text-4xl font-bold text-accent">3676</div>
+                        <div class="text-xs text-white/70 uppercase tracking-wider">RRC Reg. No.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce">
+            <a href="#about" class="text-white/80" aria-label="Scroll to about section">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- ===== PARTNER TICKER ===== -->
+    <section class="bg-light py-5 border-y border-amber-100/50 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 flex items-center gap-8">
+            <span class="text-xs font-semibold uppercase tracking-wider text-gray-500 whitespace-nowrap">We Work With</span>
+            <div class="flex-1 overflow-hidden">
+                <div class="scrolling-track flex items-center gap-8 whitespace-nowrap">
+                    <span class="text-sm font-bold text-gray-600 flex items-center gap-2"><i data-lucide="landmark" class="w-4 h-4 text-primary"></i> Relief &amp; Rehabilitation Commission</span>
+                    <span class="text-sm font-bold text-gray-600 flex items-center gap-2"><i data-lucide="users" class="w-4 h-4 text-accent"></i> Community Leaders</span>
+                    <span class="text-sm font-bold text-gray-600 flex items-center gap-2"><i data-lucide="flower-2" class="w-4 h-4 text-primary"></i> Women's Groups</span>
+                    <span class="text-sm font-bold text-gray-600 flex items-center gap-2"><i data-lucide="zap" class="w-4 h-4 text-accent"></i> Youth Networks</span>
+                    <span class="text-sm font-bold text-gray-600 flex items-center gap-2"><i data-lucide="heart-handshake" class="w-4 h-4 text-primary"></i> Grassroots Communities</span>
+                    <span class="text-sm font-bold text-gray-600 flex items-center gap-2"><i data-lucide="church" class="w-4 h-4 text-accent"></i> Faith Leaders</span>
+                    <!-- duplicated for a seamless loop -->
+                    <span class="text-sm font-bold text-gray-600 flex items-center gap-2"><i data-lucide="landmark" class="w-4 h-4 text-primary"></i> Relief &amp; Rehabilitation Commission</span>
+                    <span class="text-sm font-bold text-gray-600 flex items-center gap-2"><i data-lucide="users" class="w-4 h-4 text-accent"></i> Community Leaders</span>
+                    <span class="text-sm font-bold text-gray-600 flex items-center gap-2"><i data-lucide="flower-2" class="w-4 h-4 text-primary"></i> Women's Groups</span>
+                    <span class="text-sm font-bold text-gray-600 flex items-center gap-2"><i data-lucide="zap" class="w-4 h-4 text-accent"></i> Youth Networks</span>
+                    <span class="text-sm font-bold text-gray-600 flex items-center gap-2"><i data-lucide="heart-handshake" class="w-4 h-4 text-primary"></i> Grassroots Communities</span>
+                    <span class="text-sm font-bold text-gray-600 flex items-center gap-2"><i data-lucide="church" class="w-4 h-4 text-accent"></i> Faith Leaders</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about" class="py-16 md:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+
+            <div class="reveal relative">
+                <img src="assets/miss2.jpeg" alt="Women and youth gathered at a community meeting" class="rounded-3xl shadow-xl w-full h-[350px] md:h-[450px] object-cover" loading="lazy" />
+                <div class="absolute -bottom-4 -right-2 bg-primary text-white px-5 py-3 rounded-xl shadow-lg border-2 border-accent/30 max-w-[210px]">
+                    <span class="text-xs block uppercase tracking-wider text-white/70">Registered</span>
+                    <span class="text-lg font-bold text-accent leading-tight">RRC No. 3676</span>
+                </div>
+            </div>
+
+            <div class="reveal">
+                <span class="text-accent font-semibold text-sm uppercase tracking-widest">Who We Are</span>
+                <h2 class="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-primary mt-2 mb-4">
+                    A Platform Built <span class="text-secondary">With Communities</span>
+                </h2>
+                <div class="w-16 h-1 bg-accent rounded mb-5"></div>
+
+                <p class="text-gray-600 leading-relaxed mb-4">
+                    Mission Empowering Africa (MEA) is a South Sudanese organisation working for gender equality and the rights of every woman, girl, boy and man. We are legally registered by the Relief and Rehabilitation Commission under Chapter 3, Section 10 of the NGO Act, 2016 — Registration No. 3676 — with our headquarters in Juba.
+                </p>
+
+                <p class="text-gray-600 leading-relaxed mb-6">
+                    Our mandate is to empower children, women and youth through education and income-generating skills, so that livelihoods can hold up on their own. We don't parachute in. We sit under the tree, in the market, in the classroom — and we build from there.
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                    <div class="flex items-start gap-3">
+                        <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center shrink-0"><i data-lucide="eye" class="w-5 h-5 text-primary"></i></div>
+                        <div>
+                            <h4 class="font-bold text-primary text-sm">Our Vision</h4>
+                            <p class="text-xs text-gray-500">A peaceful, prosperous, healthy world where everyone has the power to shape their own life.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center shrink-0"><i data-lucide="target" class="w-5 h-5 text-accent"></i></div>
+                        <div>
+                            <h4 class="font-bold text-primary text-sm">Our Mission</h4>
+                            <p class="text-xs text-gray-500">Give communities a platform to share information, mobilize resources, and push for what they need.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-10 h-10 bg-secondary/10 rounded-lg flex items-center justify-center shrink-0"><i data-lucide="scroll-text" class="w-5 h-5 text-secondary"></i></div>
+                        <div>
+                            <h4 class="font-bold text-primary text-sm">Our Mandate</h4>
+                            <p class="text-xs text-gray-500">Empower children, women and youth through education and income-generating skills.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-10 h-10 bg-earth/10 rounded-lg flex items-center justify-center shrink-0"><i data-lucide="route" class="w-5 h-5 text-earth"></i></div>
+                        <div>
+                            <h4 class="font-bold text-primary text-sm">Our Approach</h4>
+                            <p class="text-xs text-gray-500">Dialogue, media and community — three ways to build lasting peace.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#work" class="inline-flex items-center gap-2 bg-primary hover:bg-secondary text-white font-semibold px-6 py-3 rounded-xl transition shadow">
+                    What We Do <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== OUR WORK / THEMATIC AREAS ===== -->
+    <section id="work" class="py-16 md:py-24 bg-gradient-to-b from-light to-white">
+        <div class="max-w-7xl mx-auto px-6">
+
+            <div class="text-center max-w-3xl mx-auto mb-10 reveal">
+                <span class="inline-flex items-center gap-2 bg-accent/10 text-accent text-sm font-bold px-5 py-2 rounded-full">
+                    <i data-lucide="layers" class="w-4 h-4"></i> What We Do
+                </span>
+                <h2 class="font-heading text-3xl md:text-5xl font-bold text-primary mt-3 mb-3">
+                    Four Areas. <span class="text-accent">One Purpose.</span>
+                </h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded mx-auto mb-4"></div>
+                <p class="text-gray-600">Every programme we run falls under one of these four areas — and every one of them is run with the community, not around it.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <!-- Card 1 — Education -->
+                <div class="service-card group">
+                    <div class="relative overflow-hidden">
+                        <img src="assets/miss3.jpeg" alt="Children in a classroom" class="service-img" loading="lazy" />
+                        <div class="absolute top-3 left-3 bg-white/90 rounded px-2 py-1 flex items-center gap-1">
+                            <i data-lucide="book-open" class="w-3 h-3 text-primary"></i>
+                            <span class="text-[10px] font-bold uppercase tracking-wide">Education</span>
+                        </div>
+                    </div>
+                    <div class="p-5 flex flex-col grow">
+                        <div class="flex items-center gap-2 mb-3">
+                            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center"><i data-lucide="book-open" class="w-5 h-5 text-primary"></i></div>
+                            <h3 class="font-heading font-bold text-primary leading-tight">Education &amp; Advocacy</h3>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-3">Getting children into classrooms, and keeping them there. We also push the policies that make it possible.</p>
+                        <ul class="text-xs text-gray-500 space-y-1 mb-4">
+                            <li class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-primary"></i> School support &amp; learning materials</li>
+                            <li class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-primary"></i> Community awareness campaigns</li>
+                            <li class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-primary"></i> Advocacy with local authorities</li>
+                            <li class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-primary"></i> Literacy &amp; mentorship for youth</li>
+                        </ul>
+                        <div class="mt-auto flex justify-between items-center pt-3 border-t border-gray-100">
+                            <span class="text-xs text-gray-400">Thematic Area 01</span>
+                            <a href="#contact" class="text-accent text-sm font-semibold flex items-center gap-1">Support <i data-lucide="arrow-right" class="w-3 h-3"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 — Peacebuilding -->
+                <div class="service-card group">
+                    <div class="relative overflow-hidden">
+                        <img src="assets/miss4.jpeg" alt="Community dialogue circle" class="service-img" loading="lazy" />
+                        <div class="absolute top-3 left-3 bg-white/90 rounded px-2 py-1 flex items-center gap-1">
+                            <i data-lucide="dove" class="w-3 h-3 text-accent"></i>
+                            <span class="text-[10px] font-bold uppercase tracking-wide">Peace</span>
+                        </div>
+                    </div>
+                    <div class="p-5 flex flex-col grow">
+                        <div class="flex items-center gap-2 mb-3">
+                            <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center"><i data-lucide="dove" class="w-5 h-5 text-accent"></i></div>
+                            <h3 class="font-heading font-bold text-primary leading-tight">Peacebuilding &amp; Reconciliation</h3>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-3">Conflict will happen. Violence doesn't have to. We help communities find another way through.</p>
+                        <ul class="text-xs text-gray-500 space-y-1 mb-4">
+                            <li class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-accent"></i> Mediation &amp; back-channel diplomacy</li>
+                            <li class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-accent"></i> Training community activists</li>
+                            <li class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-accent"></i> Inter-community dialogues</li>
+                            <li class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-accent"></i> Reconciliation conferences</li>
+                        </ul>
+                        <div class="mt-auto flex justify-between items-center pt-3 border-t border-gray-100">
+                            <span class="text-xs text-gray-400">Thematic Area 02</span>
+                            <a href="#contact" class="text-accent text-sm font-semibold flex items-center gap-1">Support <i data-lucide="arrow-right" class="w-3 h-3"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 — Empowerment -->
+                <div class="service-card group">
+                    <div class="relative overflow-hidden">
+                        <img src="assets/miss5.jpeg" alt="Women's group meeting" class="service-img" loading="lazy" />
+                        <div class="absolute top-3 left-3 bg-white/90 rounded px-2 py-1 flex items-center gap-1">
+                            <i data-lucide="sparkles" class="w-3 h-3 text-secondary"></i>
+                            <span class="text-[10px] font-bold uppercase tracking-wide">Empowerment</span>
+                        </div>
+                    </div>
+                    <div class="p-5 flex flex-col grow">
+                        <div class="flex items-center gap-2 mb-3">
+                            <div class="w-10 h-10 bg-secondary/10 rounded-lg flex items-center justify-center"><i data-lucide="sparkles" class="w-5 h-5 text-secondary"></i></div>
+                            <h3 class="font-heading font-bold text-primary leading-tight">Youth &amp; Women Empowerment</h3>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-3">Skills that earn money. Voices that get heard. A seat at the table for women and young people.</p>
+                        <ul class="text-xs text-gray-500 space-y-1 mb-4">
+                            <li class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-secondary"></i> Income-generating skills</li>
+                            <li class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-secondary"></i> Leadership &amp; rights training</li>
+                            <li class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-secondary"></i> Women's groups &amp; savings</li>
+                            <li class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-secondary"></i> Youth mentorship</li>
+                        </ul>
+                        <div class="mt-auto flex justify-between items-center pt-3 border-t border-gray-100">
+                            <span class="text-xs text-gray-400">Thematic Area 03</span>
+                            <a href="#contact" class="text-accent text-sm font-semibold flex items-center gap-1">Support <i data-lucide="arrow-right" class="w-3 h-3"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 — Food Security -->
+                <div class="service-card group">
+                    <div class="relative overflow-hidden">
+                        <img src="assets/miss6.jpeg" alt="Shared farming project" class="service-img" loading="lazy" />
+                        <div class="absolute top-3 left-3 bg-white/90 rounded px-2 py-1 flex items-center gap-1">
+                            <i data-lucide="wheat" class="w-3 h-3 text-earth"></i>
+                            <span class="text-[10px] font-bold uppercase tracking-wide">Livelihoods</span>
+                        </div>
+                    </div>
+                    <div class="p-5 flex flex-col grow">
+                        <div class="flex items-center gap-2 mb-3">
+                            <div class="w-10 h-10 bg-earth/10 rounded-lg flex items-center justify-center"><i data-lucide="wheat" class="w-5 h-5 text-earth"></i></div>
+                            <h3 class="font-heading font-bold text-primary leading-tight">Food Security &amp; Livelihoods</h3>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-3">Shared farms, practical training, and support that keeps a family fed through the dry months.</p>
+                        <ul class="text-xs text-gray-500 space-y-1 mb-4">
+                            <li class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-earth"></i> Shared farming projects</li>
+                            <li class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-earth"></i> Practical agriculture training</li>
+                            <li class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-earth"></i> Seeds, tools &amp; inputs</li>
+                            <li class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-earth"></i> Small business support</li>
+                        </ul>
+                        <div class="mt-auto flex justify-between items-center pt-3 border-t border-gray-100">
+                            <span class="text-xs text-gray-400">Thematic Area 04</span>
+                            <a href="#contact" class="text-accent text-sm font-semibold flex items-center gap-1">Support <i data-lucide="arrow-right" class="w-3 h-3"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cross-cutting note -->
+            <div class="mt-8 text-center reveal">
+                <div class="inline-flex flex-wrap items-center justify-center gap-3 bg-primary/5 border border-primary/10 rounded-xl px-5 py-3 text-sm text-primary">
+                    <span class="flex items-center gap-2"><i data-lucide="venus" class="w-4 h-4 text-accent"></i> Gender Equality</span>
+                    <span class="hidden sm:inline text-gray-300">|</span>
+                    <span class="flex items-center gap-2"><i data-lucide="megaphone" class="w-4 h-4 text-secondary"></i> Community Dialogues</span>
+                    <span class="hidden sm:inline text-gray-300">|</span>
+                    <span class="flex items-center gap-2"><i data-lucide="shield-check" class="w-4 h-4 text-earth"></i> Human Rights</span>
+                </div>
+            </div>
+
+            <!-- CTA strip -->
+            <div class="mt-12 text-center reveal">
+                <div class="inline-block w-full max-w-3xl bg-gradient-to-r from-primary to-accent rounded-2xl px-6 py-6 shadow-xl">
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center"><i data-lucide="handshake" class="w-6 h-6 text-white"></i></div>
+                        <div class="text-center sm:text-left">
+                            <h3 class="font-heading text-xl font-bold text-white">Work With Us</h3>
+                            <p class="text-white/80 text-sm">Partner on a programme, fund a community, or volunteer your skills.</p>
+                        </div>
+                        <a href="#contact" class="bg-white text-primary hover:bg-accent hover:text-white font-bold px-6 py-3 rounded-xl transition whitespace-nowrap">Get In Touch</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== APPROACHES (Dialogue / Media / Community) ===== -->
+    <section id="approaches" class="py-16 md:py-24 bg-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3 pointer-events-none"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6">
+
+            <div class="text-center max-w-3xl mx-auto mb-12 reveal">
+                <span class="inline-flex items-center gap-2 bg-primary/10 text-primary text-sm font-bold px-5 py-2 rounded-full">
+                    <i data-lucide="compass" class="w-4 h-4"></i> How We Work
+                </span>
+                <h2 class="font-heading text-3xl md:text-5xl font-bold text-primary mt-3 mb-3">
+                    Three Ways We <span class="text-accent">Build Peace</span>
+                </h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded mx-auto mb-4"></div>
+                <p class="text-gray-600">
+                    Conflict and differences are inevitable. Violence is not. We move communities away from confrontation and towards cooperative solutions — at every level, from a family dispute to a national negotiation.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+
+                <!-- Dialogue -->
+                <div class="card-hover bg-light rounded-2xl p-7 border border-amber-100 reveal relative overflow-hidden">
+                    <div class="step-number absolute top-4 right-5 select-none">01</div>
+                    <div class="w-14 h-14 bg-primary rounded-xl flex items-center justify-center mb-5 shadow-md">
+                        <i data-lucide="messages-square" class="w-7 h-7 text-white"></i>
+                    </div>
+                    <h3 class="font-heading text-2xl font-bold text-primary mb-3">Dialogue</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                        We bring people together across dividing lines — those in power and those without a platform — to find goals they can actually share. Often that means children, women, youth and local leaders in the same room.
+                    </p>
+                    <ul class="text-xs text-gray-500 space-y-2">
+                        <li class="flex items-start gap-2"><i data-lucide="dot" class="w-4 h-4 text-accent shrink-0"></i> Mediation between communities</li>
+                        <li class="flex items-start gap-2"><i data-lucide="dot" class="w-4 h-4 text-accent shrink-0"></i> Training of activists</li>
+                        <li class="flex items-start gap-2"><i data-lucide="dot" class="w-4 h-4 text-accent shrink-0"></i> Back-channel diplomacy</li>
+                    </ul>
+                </div>
+
+                <!-- Media -->
+                <div class="card-hover bg-light rounded-2xl p-7 border border-amber-100 reveal relative overflow-hidden">
+                    <div class="step-number absolute top-4 right-5 select-none">02</div>
+                    <div class="w-14 h-14 bg-accent rounded-xl flex items-center justify-center mb-5 shadow-md">
+                        <i data-lucide="radio" class="w-7 h-7 text-white"></i>
+                    </div>
+                    <h3 class="font-heading text-2xl font-bold text-primary mb-3">Media</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                        We use radio, TV and social platforms to get people talking about the real causes of violence — and about what it would take to move past them. Conversations that start on air often continue in the market.
+                    </p>
+                    <ul class="text-xs text-gray-500 space-y-2">
+                        <li class="flex items-start gap-2"><i data-lucide="dot" class="w-4 h-4 text-accent shrink-0"></i> TV &amp; radio call-in shows</li>
+                        <li class="flex items-start gap-2"><i data-lucide="dot" class="w-4 h-4 text-accent shrink-0"></i> Live streaming campaigns</li>
+                        <li class="flex items-start gap-2"><i data-lucide="dot" class="w-4 h-4 text-accent shrink-0"></i> Facebook, Twitter &amp; social media</li>
+                    </ul>
+                </div>
+
+                <!-- Community -->
+                <div class="card-hover bg-light rounded-2xl p-7 border border-amber-100 reveal relative overflow-hidden">
+                    <div class="step-number absolute top-4 right-5 select-none">03</div>
+                    <div class="w-14 h-14 bg-secondary rounded-xl flex items-center justify-center mb-5 shadow-md">
+                        <i data-lucide="trees" class="w-7 h-7 text-white"></i>
+                    </div>
+                    <h3 class="font-heading text-2xl font-bold text-primary mb-3">Community</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                        The hardest work happens close to home. We give neighbours, families and divided groups a safe space to work things out — often under a tree, sometimes on a football pitch.
+                    </p>
+                    <ul class="text-xs text-gray-500 space-y-2">
+                        <li class="flex items-start gap-2"><i data-lucide="dot" class="w-4 h-4 text-accent shrink-0"></i> Under-the-tree dialogues</li>
+                        <li class="flex items-start gap-2"><i data-lucide="dot" class="w-4 h-4 text-accent shrink-0"></i> Shared farming projects</li>
+                        <li class="flex items-start gap-2"><i data-lucide="dot" class="w-4 h-4 text-accent shrink-0"></i> Soccer, athletics &amp; wrestling</li>
+                        <li class="flex items-start gap-2"><i data-lucide="dot" class="w-4 h-4 text-accent shrink-0"></i> Public debates &amp; conferences</li>
+                    </ul>
+                </div>
+            </div>
+
+            <p class="text-center text-sm text-gray-500 mt-10 max-w-2xl mx-auto reveal">
+                These three approaches run across all four of our thematic areas. A women's savings group is also a dialogue space. A football match is also a peacebuilding tool.
+            </p>
+        </div>
+    </section>
+
+    <!-- ===== WHERE WE WORK ===== -->
+    <section id="where-we-work" class="relative py-20 md:py-28 overflow-hidden">
+        <img src="assets/miss7.jpeg" alt="South Sudan landscape" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+        <div class="absolute inset-0 bg-gradient-to-br from-primary/95 via-darkred/80 to-earth/60"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6 text-white">
+            <div class="max-w-3xl reveal">
+                <span class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-4 border border-white/20">
+                    <i data-lucide="map-pin" class="w-4 h-4 text-accent"></i> Where We Work
+                </span>
+                <h2 class="font-heading text-3xl md:text-5xl font-bold mb-4">
+                    Rooted in <span class="text-accent">South Sudan</span>
+                </h2>
+                <p class="text-white/90 mb-6 max-w-2xl">
+                    Our head office sits in Juba, but our work reaches into the counties and payams where communities have asked us to come. We go where we're invited, and we stay as long as the work needs us.
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-8">
+                    <div class="bg-white/10 backdrop-blur-md rounded-lg px-4 py-3 border border-white/20">
+                        <p class="text-sm font-semibold">Head Office</p>
+                        <p class="text-xs text-white/60">Juba, Central Equatoria</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-md rounded-lg px-4 py-3 border border-white/20">
+                        <p class="text-sm font-semibold">Field Programmes</p>
+                        <p class="text-xs text-white/60">Multiple states &amp; counties</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-md rounded-lg px-4 py-3 border border-white/20">
+                        <p class="text-sm font-semibold">Community Hubs</p>
+                        <p class="text-xs text-white/60">Dialogue &amp; training sites</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap gap-3">
+                    <a href="#contact" class="bg-accent hover:bg-amber-500 text-white font-bold px-6 py-3 rounded-lg transition">Reach Out</a>
+                    <a href="https://maps.google.com/?q=Juba+South+Sudan" target="_blank" rel="noopener" class="border border-white/50 hover:bg-white/10 text-white font-bold px-6 py-3 rounded-lg transition">Find Us on the Map</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== GALLERY ===== -->
+    <section id="gallery" class="py-16 md:py-24 bg-light relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-72 h-72 bg-accent/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl translate-x-1/3 translate-y-1/3 pointer-events-none"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6">
+
+            <div class="text-center max-w-3xl mx-auto mb-10 reveal">
+                <span class="inline-flex items-center gap-2 bg-accent/10 text-accent text-sm font-bold px-5 py-2 rounded-full">
+                    <i data-lucide="camera" class="w-4 h-4"></i> From the Field
+                </span>
+                <h2 class="font-heading text-3xl md:text-5xl font-bold text-primary mt-3 mb-3">
+                    Moments From <span class="text-accent">Our Work</span>
+                </h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded mx-auto mb-4"></div>
+                <p class="text-gray-600">Dialogues under trees, women's savings meetings, football matches, harvest days. This is what it looks like on the ground.</p>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 md:gap-4 reveal" id="gallery-grid">
+                <div class="group relative overflow-hidden rounded-xl shadow-md cursor-zoom-in bg-white aspect-square gallery-item">
+                    <img src="assets/miss1.jpeg" alt="MEA field work 1" loading="lazy" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                </div>
+                <div class="group relative overflow-hidden rounded-xl shadow-md cursor-zoom-in bg-white aspect-square gallery-item">
+                    <img src="assets/miss2.jpeg" alt="MEA field work 2" loading="lazy" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                </div>
+                <div class="group relative overflow-hidden rounded-xl shadow-md cursor-zoom-in bg-white aspect-square gallery-item">
+                    <img src="assets/miss3.jpeg" alt="MEA field work 3" loading="lazy" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                </div>
+                <div class="group relative overflow-hidden rounded-xl shadow-md cursor-zoom-in bg-white aspect-square gallery-item">
+                    <img src="assets/miss4.jpeg" alt="MEA field work 4" loading="lazy" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                </div>
+                <div class="group relative overflow-hidden rounded-xl shadow-md cursor-zoom-in bg-white aspect-square gallery-item">
+                    <img src="assets/miss5.jpeg" alt="MEA field work 5" loading="lazy" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                </div>
+                <div class="group relative overflow-hidden rounded-xl shadow-md cursor-zoom-in bg-white aspect-square gallery-item">
+                    <img src="assets/miss6.jpeg" alt="MEA field work 6" loading="lazy" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                </div>
+                <div class="group relative overflow-hidden rounded-xl shadow-md cursor-zoom-in bg-white aspect-square gallery-item">
+                    <img src="assets/miss7.jpeg" alt="MEA field work 7" loading="lazy" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                </div>
+                <div class="group relative overflow-hidden rounded-xl shadow-md cursor-zoom-in bg-white aspect-square gallery-item">
+                    <img src="assets/miss8.jpeg" alt="MEA field work 8" loading="lazy" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                </div>
+                <div class="group relative overflow-hidden rounded-xl shadow-md cursor-zoom-in bg-white aspect-square gallery-item">
+                    <img src="assets/miss9.jpeg" alt="MEA field work 9" loading="lazy" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                </div>
+                <div class="group relative overflow-hidden rounded-xl shadow-md cursor-zoom-in bg-white aspect-square gallery-item">
+                    <img src="assets/miss10.jpeg" alt="MEA field work 10" loading="lazy" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                </div>
+            </div>
+
+            <div class="mt-10 text-center reveal">
+                <button id="gallery-cta" class="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-white font-bold px-8 py-3.5 rounded-xl transition shadow-lg hover:shadow-xl">
+                    <i data-lucide="images" class="w-5 h-5"></i> View Full Gallery
+                </button>
+                <p class="text-xs text-gray-500 mt-3">Click any photo to view it larger</p>
+            </div>
+        </div>
+
+        <!-- Lightbox -->
+        <div id="lightbox" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/90 backdrop-blur-sm p-4">
+            <div class="relative max-w-5xl w-full max-h-[90vh] flex flex-col items-center">
+                <button id="lightbox-close" class="absolute -top-12 right-0 text-white/80 hover:text-white transition p-2" aria-label="Close">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+                <div class="w-full flex items-center justify-center bg-black/50 rounded-2xl overflow-hidden">
+                    <img id="lightbox-img" src="" alt="" class="max-h-[80vh] max-w-full object-contain" />
+                </div>
+                <button id="lightbox-prev" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 text-white rounded-full p-2 transition" aria-label="Previous">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                </button>
+                <button id="lightbox-next" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 text-white rounded-full p-2 transition" aria-label="Next">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SUPPORT ===== -->
+    <section id="support" class="py-16 md:py-24 bg-gradient-to-b from-white to-light">
+        <div class="max-w-7xl mx-auto px-6">
+
+            <div class="text-center max-w-3xl mx-auto mb-10 reveal">
+                <span class="inline-flex items-center gap-2 bg-accent/10 text-accent text-sm font-bold px-5 py-2 rounded-full">
+                    <i data-lucide="hand-heart" class="w-4 h-4"></i> How You Can Help
+                </span>
+                <h2 class="font-heading text-3xl md:text-5xl font-bold text-primary mt-3 mb-3">
+                    Stand With <span class="text-accent">Communities</span>
+                </h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded mx-auto mb-4"></div>
+                <p class="text-gray-600">We welcome partners, well-wishers and donors who want to see change that lasts.</p>
+            </div>
+
+            <div class="grid grid-cols-3 gap-4 max-w-2xl mx-auto mb-10 reveal">
+                <div class="bg-white/80 rounded-xl p-3 text-center shadow-sm">
+                    <p class="text-xl font-bold text-primary counter-value" data-target="4">0</p>
+                    <p class="text-xs text-gray-500 uppercase tracking-wide">Thematic Areas</p>
+                </div>
+                <div class="bg-white/80 rounded-xl p-3 text-center shadow-sm">
+                    <p class="text-xl font-bold text-primary counter-value" data-target="3">0</p>
+                    <p class="text-xs text-gray-500 uppercase tracking-wide">Approaches</p>
+                </div>
+                <div class="bg-white/80 rounded-xl p-3 text-center shadow-sm">
+                    <p class="text-xl font-bold text-primary">3676</p>
+                    <p class="text-xs text-gray-500 uppercase tracking-wide">RRC Reg. No.</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+
+                <!-- Give -->
+                <div class="card-hover bg-white rounded-2xl p-6 shadow-md border border-gray-100 reveal">
+                    <div class="w-14 h-14 bg-gradient-to-br from-accent to-amber-500 rounded-xl flex items-center justify-center mb-4">
+                        <i data-lucide="hand-heart" class="w-6 h-6 text-white"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-primary mb-2">Give</h3>
+                    <p class="text-sm text-gray-600 mb-3">Your gift goes directly into programmes on the ground.</p>
+                    <ul class="text-xs text-gray-500 space-y-1 mb-4">
+                        <li class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-accent"></i> Train a woman in a trade</li>
+                        <li class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-accent"></i> Put a child back in school</li>
+                        <li class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-accent"></i> Fund seeds for a shared farm</li>
+                    </ul>
+                    <a href="#contact" class="block bg-gradient-to-r from-accent to-amber-500 text-white text-center font-semibold py-2.5 rounded-lg transition hover:shadow-lg">Give Today</a>
+                </div>
+
+                <!-- Volunteer -->
+                <div class="card-hover bg-white rounded-2xl p-6 shadow-md border border-gray-100 reveal">
+                    <div class="w-14 h-14 bg-gradient-to-br from-primary to-emerald-600 rounded-xl flex items-center justify-center mb-4">
+                        <i data-lucide="users" class="w-6 h-6 text-white"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-primary mb-2">Volunteer</h3>
+                    <p class="text-sm text-gray-600 mb-3">Give your time and skills where they'll count.</p>
+                    <ul class="text-xs text-gray-500 space-y-1 mb-4">
+                        <li class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-primary"></i> Facilitate a dialogue</li>
+                        <li class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-primary"></i> Train a vocational class</li>
+                        <li class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-primary"></i> Coach youth sports</li>
+                    </ul>
+                    <a href="#contact" class="block bg-gradient-to-r from-primary to-emerald-600 text-white text-center font-semibold py-2.5 rounded-lg transition hover:shadow-lg">Volunteer</a>
+                </div>
+
+                <!-- Partner -->
+                <div class="card-hover bg-white rounded-2xl p-6 shadow-md border border-gray-100 reveal">
+                    <div class="w-14 h-14 bg-gradient-to-br from-secondary to-orange-600 rounded-xl flex items-center justify-center mb-4">
+                        <i data-lucide="handshake" class="w-6 h-6 text-white"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-primary mb-2">Partner</h3>
+                    <p class="text-sm text-gray-600 mb-3">Work with us on a programme, a county, or a whole thematic area.</p>
+                    <ul class="text-xs text-gray-500 space-y-1 mb-4">
+                        <li class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-secondary"></i> Co-fund a project</li>
+                        <li class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-secondary"></i> Share technical expertise</li>
+                        <li class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-secondary"></i> In-kind support</li>
+                    </ul>
+                    <a href="#contact" class="block bg-gradient-to-r from-secondary to-orange-600 text-white text-center font-semibold py-2.5 rounded-lg transition hover:shadow-lg">Partner With Us</a>
+                </div>
+            </div>
+
+            <!-- Contact banner -->
+            <div class="mt-12 text-center reveal">
+                <div class="inline-flex flex-col sm:flex-row items-center gap-4 bg-gradient-to-r from-primary to-accent rounded-xl px-6 py-5 shadow-lg max-w-2xl">
+                    <i data-lucide="map-pin" class="w-8 h-8 text-white shrink-0"></i>
+                    <p class="text-white text-sm text-center sm:text-left">Juba, Central Equatoria, South Sudan · RRC Reg. No. 3676</p>
+                    <a href="tel:+211922331824" class="bg-white text-primary font-bold px-5 py-2 rounded-lg whitespace-nowrap">Call Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section id="faq" class="py-16 md:py-24 bg-gradient-to-b from-white to-light relative overflow-hidden">
+        <div class="absolute top-20 -left-20 w-72 h-72 bg-secondary/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 -right-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-5 gap-12 items-start">
+
+                <div class="lg:col-span-2 reveal">
+                    <span class="inline-flex items-center gap-2 bg-primary/10 text-primary text-sm font-bold px-5 py-2 rounded-full">
+                        <i data-lucide="help-circle" class="w-4 h-4"></i> Questions
+                    </span>
+                    <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary mt-3 mb-3">
+                        Things People <span class="text-accent">Ask Us</span>
+                    </h2>
+                    <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded mb-5"></div>
+                    <p class="text-gray-600 mb-8">
+                        If your question isn't here, just write to us. We answer every message.
+                    </p>
+
+                    <div class="bg-white/80 rounded-2xl p-5 shadow-md border border-gray-100">
+                        <div class="flex items-start gap-3">
+                            <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center shrink-0">
+                                <i data-lucide="message-circle" class="w-5 h-5 text-accent"></i>
+                            </div>
+                            <p class="text-sm text-gray-600">Still unsure about something? We're happy to explain.</p>
+                        </div>
+                        <a href="#contact" class="mt-3 inline-flex items-center gap-2 text-primary font-semibold hover:text-accent transition text-sm">
+                            Contact Us <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+
+                    <div class="mt-6 flex flex-wrap gap-3">
+                        <div class="bg-white/80 rounded-xl px-4 py-2 shadow-sm flex items-center gap-2">
+                            <i data-lucide="shield-check" class="w-4 h-4 text-primary"></i>
+                            <span class="text-xs font-semibold text-gray-600">RRC Registered</span>
+                        </div>
+                        <div class="bg-white/80 rounded-xl px-4 py-2 shadow-sm flex items-center gap-2">
+                            <i data-lucide="file-check" class="w-4 h-4 text-primary"></i>
+                            <span class="text-xs font-semibold text-gray-600">NGO Act 2016 Compliant</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-3 reveal">
+                    <div class="space-y-4">
+
+                        <details class="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-md">
+                            <summary class="flex items-center justify-between cursor-pointer p-5 md:p-6 list-none">
+                                <span class="font-semibold text-primary text-base md:text-lg">What does MEA actually do?</span>
+                                <span class="ml-4 shrink-0 w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center text-primary group-open:bg-accent group-open:text-white transition-colors">
+                                    <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300 group-open:rotate-180"></i>
+                                </span>
+                            </summary>
+                            <div class="px-5 md:px-6 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-50 pt-4">
+                                We work in four areas: education and advocacy, peacebuilding and reconciliation, youth and women empowerment, and food security and livelihoods. We run community dialogues, train activists, support women's savings groups, run radio call-in shows, set up shared farms, and organise sports and public debates. Everything we do is done with the community, not handed down to them.
+                            </div>
+                        </details>
+
+                        <details class="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-md">
+                            <summary class="flex items-center justify-between cursor-pointer p-5 md:p-6 list-none">
+                                <span class="font-semibold text-primary text-base md:text-lg">Where does MEA work?</span>
+                                <span class="ml-4 shrink-0 w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center text-primary group-open:bg-accent group-open:text-white transition-colors">
+                                    <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300 group-open:rotate-180"></i>
+                                </span>
+                            </summary>
+                            <div class="px-5 md:px-6 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-50 pt-4">
+                                Our headquarters are in Juba, Central Equatoria. From there we run programmes in several states and counties across South Sudan, depending on where communities have invited us and where the need is greatest. If you want to know whether we're active in your area, get in touch.
+                            </div>
+                        </details>
+
+                        <details class="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-md">
+                            <summary class="flex items-center justify-between cursor-pointer p-5 md:p-6 list-none">
+                                <span class="font-semibold text-primary text-base md:text-lg">How is MEA registered?</span>
+                                <span class="ml-4 shrink-0 w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center text-primary group-open:bg-accent group-open:text-white transition-colors">
+                                    <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300 group-open:rotate-180"></i>
+                                </span>
+                            </summary>
+                            <div class="px-5 md:px-6 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-50 pt-4">
+                                We are legally registered by the Relief and Rehabilitation Commission (RRC) under Chapter 3, Section 10 of the NGO Act, 2016. Our registration number is 3676. We operate fully within South Sudanese law and follow all child protection and safeguarding requirements.
+                            </div>
+                        </details>
+
+                        <details class="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-md">
+                            <summary class="flex items-center justify-between cursor-pointer p-5 md:p-6 list-none">
+                                <span class="font-semibold text-primary text-base md:text-lg">How can I support MEA?</span>
+                                <span class="ml-4 shrink-0 w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center text-primary group-open:bg-accent group-open:text-white transition-colors">
+                                    <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300 group-open:rotate-180"></i>
+                                </span>
+                            </summary>
+                            <div class="px-5 md:px-6 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-50 pt-4">
+                                Three ways, mainly. You can give — financially or in kind (seeds, tools, school materials, equipment). You can volunteer your time and skills. Or you can partner with us institutionally, whether that's co-funding a programme or bringing technical expertise. Reach out and we'll find the right fit.
+                            </div>
+                        </details>
+
+                        <details class="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-md">
+                            <summary class="flex items-center justify-between cursor-pointer p-5 md:p-6 list-none">
+                                <span class="font-semibold text-primary text-base md:text-lg">How are donations used?</span>
+                                <span class="ml-4 shrink-0 w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center text-primary group-open:bg-accent group-open:text-white transition-colors">
+                                    <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300 group-open:rotate-180"></i>
+                                </span>
+                            </summary>
+                            <div class="px-5 md:px-6 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-50 pt-4">
+                                Donations go into programme delivery — training materials, seeds and tools, transport to reach remote communities, radio airtime, and staff who run the work on the ground. We keep overheads low and can share a breakdown of spending with any donor who asks.
+                            </div>
+                        </details>
+
+                        <details class="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-md">
+                            <summary class="flex items-center justify-between cursor-pointer p-5 md:p-6 list-none">
+                                <span class="font-semibold text-primary text-base md:text-lg">Can my organisation partner with MEA?</span>
+                                <span class="ml-4 shrink-0 w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center text-primary group-open:bg-accent group-open:text-white transition-colors">
+                                    <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300 group-open:rotate-180"></i>
+                                </span>
+                            </summary>
+                            <div class="px-5 md:px-6 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-50 pt-4">
+                                Yes. We partner with NGOs, community-based organisations, government bodies, faith groups and private companies. If you work in any of our four thematic areas, or you have resources that could support them, we'd like to talk. Write to us with a short note about your organisation and what you have in mind.
+                            </div>
+                        </details>
+
+                        <details class="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-md">
+                            <summary class="flex items-center justify-between cursor-pointer p-5 md:p-6 list-none">
+                                <span class="font-semibold text-primary text-base md:text-lg">Do you work with local leaders and government?</span>
+                                <span class="ml-4 shrink-0 w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center text-primary group-open:bg-accent group-open:text-white transition-colors">
+                                    <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300 group-open:rotate-180"></i>
+                                </span>
+                            </summary>
+                            <div class="px-5 md:px-6 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-50 pt-4">
+                                Always. Nothing we do works without the buy-in of local leaders, elders, women's representatives and youth. We also work with county and state authorities where it helps the work move forward. Community ownership is the whole point — if it only belongs to us, it won't outlast us.
+                            </div>
+                        </details>
+
+                        <details class="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-md">
+                            <summary class="flex items-center justify-between cursor-pointer p-5 md:p-6 list-none">
+                                <span class="font-semibold text-primary text-base md:text-lg">Can I visit a project site?</span>
+                                <span class="ml-4 shrink-0 w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center text-primary group-open:bg-accent group-open:text-white transition-colors">
+                                    <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300 group-open:rotate-180"></i>
+                                </span>
+                            </summary>
+                            <div class="px-5 md:px-6 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-50 pt-4">
+                                Yes, with advance notice. We ask visitors to coordinate with us first so we can arrange transport, inform the community, and make sure your visit doesn't disrupt an ongoing activity. Donors and partners are welcome to see the work first-hand.
+                            </div>
+                        </details>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="py-16 md:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-10 items-start">
+
+            <div class="reveal">
+                <span class="text-accent text-sm uppercase tracking-widest font-semibold">Get In Touch</span>
+                <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary mt-2 mb-4">
+                    Let's Build Something <span class="text-accent">That Lasts</span>
+                </h2>
+                <div class="w-16 h-1 bg-accent rounded mb-5"></div>
+                <p class="text-gray-600 mb-6">
+                    Whether you want to give, volunteer, partner, or just understand more about what we do — write to us. We answer every message.
+                </p>
+
+                <div class="space-y-4">
+                    <div class="flex items-start gap-3">
+                        <div class="w-10 h-10 bg-light rounded-lg flex items-center justify-center shrink-0"><i data-lucide="map-pin" class="w-5 h-5 text-accent"></i></div>
+                        <div>
+                            <h4 class="font-semibold text-primary">Head Office</h4>
+                            <p class="text-sm text-gray-500">Juba, Central Equatoria, South Sudan</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-10 h-10 bg-light rounded-lg flex items-center justify-center shrink-0"><i data-lucide="phone" class="w-5 h-5 text-accent"></i></div>
+                        <div>
+                            <h4 class="font-semibold text-primary">Phone</h4>
+                            <a href="tel:+211922331824" class="text-sm text-gray-500 hover:text-accent block transition">0922 331 824</a>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-10 h-10 bg-light rounded-lg flex items-center justify-center shrink-0"><i data-lucide="mail" class="w-5 h-5 text-accent"></i></div>
+                        <div>
+                            <h4 class="font-semibold text-primary">Email</h4>
+                            <a href="mailto:infomea200@gmails.com" class="text-sm text-gray-500 hover:text-accent transition break-all">infomea200@gmails.com</a>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-10 h-10 bg-light rounded-lg flex items-center justify-center shrink-0"><i data-lucide="badge-check" class="w-5 h-5 text-accent"></i></div>
+                        <div>
+                            <h4 class="font-semibold text-primary">Registration</h4>
+                            <p class="text-sm text-gray-500">RRC Reg. No. 3676 · NGO Act, 2016</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reveal bg-light rounded-2xl shadow-lg p-6 border border-gray-100">
+                <h3 class="font-heading text-xl font-bold text-primary mb-4">Send Us a Message</h3>
+                <form id="contact-form" class="space-y-3">
+                    <div class="grid sm:grid-cols-2 gap-3">
+                        <input type="text" required placeholder="Your name" class="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-sm bg-white focus:border-accent outline-none transition" />
+                        <input type="email" required placeholder="Email address" class="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-sm bg-white focus:border-accent outline-none transition" />
+                    </div>
+                    <select class="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-sm bg-white focus:border-accent outline-none transition text-gray-500">
+                        <option disabled selected>What is this about?</option>
+                        <option>Donation</option>
+                        <option>Volunteering</option>
+                        <option>Partnership</option>
+                        <option>Media enquiry</option>
+                        <option>Visit a project</option>
+                        <option>Something else</option>
+                    </select>
+                    <textarea required rows="4" placeholder="Your message..." class="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-sm bg-white focus:border-accent outline-none resize-none transition"></textarea>
+                    <button type="submit" class="w-full bg-accent hover:bg-amber-500 text-white font-semibold py-3 rounded-lg transition flex items-center justify-center gap-2">
+                        Send Message <i data-lucide="send" class="w-4 h-4"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="bg-primary text-white relative overflow-hidden">
+    <div class="absolute top-0 left-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+    <div class="absolute bottom-0 right-0 w-80 h-80 bg-secondary/10 rounded-full blur-3xl translate-x-1/3 translate-y-1/3 pointer-events-none"></div>
+
+    <!-- Newsletter -->
+    <div class="relative z-10 border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-10 md:py-12">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h3 class="font-heading text-2xl md:text-3xl font-bold mb-2">Keep In Touch</h3>
+                    <p class="text-white/70">Occasional updates on our programmes, our communities, and where your support goes.</p>
+                </div>
+                <form class="flex flex-col sm:flex-row gap-3" onsubmit="return false;">
+                    <input type="email" required placeholder="Your email address"
+                           class="flex-1 px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:border-accent focus:bg-white/20 transition" />
+                    <button type="submit" class="inline-flex items-center justify-center gap-2 bg-accent hover:bg-amber-500 text-white font-bold px-6 py-3 rounded-xl transition shadow-lg">
+                        <i data-lucide="mail" class="w-4 h-4"></i> Subscribe
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main footer -->
+    <div class="relative z-10 max-w-7xl mx-auto px-6 py-12 md:py-16">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+            <div class="lg:pr-4">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="logo-badge w-14 h-14 flex items-center justify-center overflow-hidden">
+                        <img src="assets/misslogo.jpeg" alt="MEA logo" class="w-full h-full object-contain" />
+                    </div>
+                    <div>
+                        <span class="font-heading text-xl font-bold">MEA</span>
+                        <span class="block text-[10px] uppercase tracking-wider text-white/60">Mission Empowering Africa</span>
+                    </div>
+                </div>
+                <p class="text-white/70 text-sm leading-relaxed mb-4">
+                    A South Sudanese NGO working on gender equality, peacebuilding, education, empowerment and food security. Registered with the RRC, Reg. No. 3676.
+                </p>
+                <div class="flex space-x-3">
+                    <a href="#" class="w-9 h-9 bg-white/10 hover:bg-accent rounded-lg flex items-center justify-center transition" aria-label="Facebook">
+                        <i data-lucide="facebook" class="w-4 h-4"></i>
+                    </a>
+                    <a href="#" class="w-9 h-9 bg-white/10 hover:bg-accent rounded-lg flex items-center justify-center transition" aria-label="Twitter">
+                        <i data-lucide="twitter" class="w-4 h-4"></i>
+                    </a>
+                    <a href="#" class="w-9 h-9 bg-white/10 hover:bg-accent rounded-lg flex items-center justify-center transition" aria-label="Instagram">
+                        <i data-lucide="instagram" class="w-4 h-4"></i>
+                    </a>
+                    <a href="#" class="w-9 h-9 bg-white/10 hover:bg-accent rounded-lg flex items-center justify-center transition" aria-label="YouTube">
+                        <i data-lucide="youtube" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="font-bold text-lg mb-4 text-white">Quick Links</h4>
+                <ul class="space-y-2 text-sm text-white/70">
+                    <li><a href="#home" class="hover:text-accent transition inline-flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3"></i> Home</a></li>
+                    <li><a href="#about" class="hover:text-accent transition inline-flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3"></i> About</a></li>
+                    <li><a href="#work" class="hover:text-accent transition inline-flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3"></i> Our Work</a></li>
+                    <li><a href="#approaches" class="hover:text-accent transition inline-flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3"></i> Approaches</a></li>
+                    <li><a href="#gallery" class="hover:text-accent transition inline-flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3"></i> Gallery</a></li>
+                    <li><a href="#faq" class="hover:text-accent transition inline-flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3"></i> FAQ</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-bold text-lg mb-4 text-white">What We Do</h4>
+                <ul class="space-y-2 text-sm text-white/70">
+                    <li><a href="#work" class="hover:text-accent transition inline-flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3"></i> Education &amp; Advocacy</a></li>
+                    <li><a href="#work" class="hover:text-accent transition inline-flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3"></i> Peacebuilding &amp; Reconciliation</a></li>
+                    <li><a href="#work" class="hover:text-accent transition inline-flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3"></i> Youth &amp; Women Empowerment</a></li>
+                    <li><a href="#work" class="hover:text-accent transition inline-flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3"></i> Food Security &amp; Livelihoods</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-bold text-lg mb-4 text-white">Contact</h4>
+                <ul class="space-y-3 text-sm text-white/70">
+                    <li class="flex items-start gap-3">
+                        <div class="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center shrink-0"><i data-lucide="map-pin" class="w-4 h-4 text-accent"></i></div>
+                        <span>Juba, Central Equatoria,<br>South Sudan</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <div class="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center shrink-0"><i data-lucide="phone" class="w-4 h-4 text-accent"></i></div>
+                        <a href="tel:+211922331824" class="hover:text-accent transition">0922 331 824</a>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <div class="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center shrink-0"><i data-lucide="mail" class="w-4 h-4 text-accent"></i></div>
+                        <a href="mailto:infomea200@gmails.com" class="hover:text-accent transition break-all">infomea200@gmails.com</a>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <div class="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center shrink-0"><i data-lucide="badge-check" class="w-4 h-4 text-accent"></i></div>
+                        <span>RRC Reg. No. 3676</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="relative z-10 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex flex-col md:flex-row justify-between items-center gap-3">
+            <p class="text-xs text-white/50">© <span id="year"></span> Mission Empowering Africa (MEA). All rights reserved.</p>
+            <div class="flex space-x-4 text-xs text-white/50">
+                <a href="#" class="hover:text-accent transition">Privacy Policy</a>
+                <a href="#" class="hover:text-accent transition">Terms of Use</a>
+                <a href="#" class="hover:text-accent transition">Safeguarding</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    lucide.createIcons();
+
+    /* ---------- Footer year ---------- */
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    /* ---------- Mobile menu ---------- */
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuOverlay = document.getElementById('menu-overlay');
+    const menuClose = document.getElementById('menu-close');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    function openMobileMenu() {
+        mobileMenu.classList.add('open');
+        menuOverlay.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeMobileMenu() {
+        mobileMenu.classList.remove('open');
+        menuOverlay.classList.add('hidden');
+        document.body.style.overflow = '';
+    }
+    menuToggle.addEventListener('click', openMobileMenu);
+    menuClose.addEventListener('click', closeMobileMenu);
+    menuOverlay.addEventListener('click', closeMobileMenu);
+    mobileLinks.forEach(link => link.addEventListener('click', closeMobileMenu));
+
+    /* ---------- Scroll reveal ---------- */
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    /* ---------- Number counters ---------- */
+    const counters = document.querySelectorAll('.counter, .counter-value');
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            const el = entry.target;
+            const target = parseInt(el.dataset.target, 10);
+            if (isNaN(target)) return;
+
+            let current = 0;
+            const step = Math.max(1, Math.ceil(target / 35));
+            const tick = () => {
+                current += step;
+                if (current >= target) {
+                    el.textContent = target;
+                    clearInterval(interval);
+                } else {
+                    el.textContent = current;
+                }
+            };
+            const interval = setInterval(tick, 28);
+            counterObserver.unobserve(el);
+        });
+    }, { threshold: 0.4 });
+    counters.forEach(c => counterObserver.observe(c));
+
+    /* ---------- Smooth anchor scrolling ---------- */
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href === '#') return;
+            const target = document.querySelector(href);
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+
+    /* ---------- Navbar shadow on scroll ---------- */
+    const navbar = document.getElementById('navbar');
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md', 'bg-white/95');
+                navbar.classList.remove('bg-white/90');
+            } else {
+                navbar.classList.remove('shadow-md', 'bg-white/95');
+                navbar.classList.add('bg-white/90');
+            }
+            ticking = false;
+        });
+    }, { passive: true });
+
+    /* ---------- Contact form (demo only) ---------- */
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const button = contactForm.querySelector('button[type="submit"]');
+            const original = button.innerHTML;
+            button.innerHTML = '<i data-lucide="check" class="w-4 h-4"></i> Message sent';
+            button.disabled = true;
+            lucide.createIcons();
+            setTimeout(() => {
+                button.innerHTML = original;
+                button.disabled = false;
+                contactForm.reset();
+                lucide.createIcons();
+            }, 2200);
+        });
+    }
+
+    /* ---------- Gallery lightbox ---------- */
+    (function () {
+        const items = document.querySelectorAll('.gallery-item');
+        const lightbox = document.getElementById('lightbox');
+        if (!items.length || !lightbox) return;
+
+        const boxImg = document.getElementById('lightbox-img');
+        const closeBtn = document.getElementById('lightbox-close');
+        const prevBtn = document.getElementById('lightbox-prev');
+        const nextBtn = document.getElementById('lightbox-next');
+        const openAllBtn = document.getElementById('gallery-cta');
+        const total = items.length;
+        let index = 0;
+
+        const dataAt = (i) => {
+            const img = items[i].querySelector('img');
+            return { src: img.src, alt: img.alt };
+        };
+
+        function show(i) {
+            index = (i + total) % total;
+            const d = dataAt(index);
+            boxImg.src = d.src;
+            boxImg.alt = d.alt;
+        }
+        function open(i) {
+            show(i);
+            lightbox.classList.remove('hidden');
+            lightbox.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+        function close() {
+            lightbox.classList.add('hidden');
+            lightbox.classList.remove('flex');
+            document.body.style.overflow = '';
+        }
+
+        items.forEach((item, i) => item.addEventListener('click', () => open(i)));
+        closeBtn.addEventListener('click', close);
+        nextBtn.addEventListener('click', () => show(index + 1));
+        prevBtn.addEventListener('click', () => show(index - 1));
+        lightbox.addEventListener('click', (e) => { if (e.target === lightbox) close(); });
+        document.addEventListener('keydown', (e) => {
+            if (lightbox.classList.contains('hidden')) return;
+            if (e.key === 'Escape') close();
+            if (e.key === 'ArrowRight') show(index + 1);
+            if (e.key === 'ArrowLeft') show(index - 1);
+        });
+        if (openAllBtn) openAllBtn.addEventListener('click', () => open(0));
+    })();
+
+</script>
+</body>
+</html>
