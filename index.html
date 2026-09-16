@@ -3,20 +3,18 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>Mission Empowering Africa (MEA) | Gender Equality, Peacebuilding & Livelihoods in South Sudan</title>
-<meta name="description" content="Mission Empowering Africa (MEA) works with children, women, youth and grassroots communities across South Sudan on education, peacebuilding, empowerment and food security. RRC Reg. No. 3676." />
+<title>Mission Empowering Africa (MEA) | Gender Equality, Peacebuilding and Livelihoods in South Sudan</title>
+<meta name="description" content="Mission Empowering Africa works with children, women, youth and grassroots communities across South Sudan on education, peacebuilding, empowerment and food security. RRC Reg. No. 3676." />
 <meta name="keywords" content="Mission Empowering Africa, MEA South Sudan, gender equality, peacebuilding, women empowerment, youth empowerment, food security, Juba NGO" />
 <meta name="author" content="Mission Empowering Africa (MEA)" />
 <link rel="canonical" href="https://www.missionempoweringafrica.org/" />
 
-<!-- Open Graph -->
 <meta property="og:title" content="Mission Empowering Africa | Every person has the power to shape their life" />
 <meta property="og:description" content="Registered South Sudanese NGO working on education, peacebuilding, youth and women empowerment, and food security. RRC Reg. No. 3676." />
 <meta property="og:type" content="website" />
 <meta property="og:image" content="assets/misslogo.jpeg" />
 <meta name="twitter:card" content="summary_large_image" />
 
-<!-- Tailwind CSS (CDN) -->
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
     tailwind.config = {
@@ -24,12 +22,13 @@
             extend: {
                 colors: {
                     primary: '#0F766E',
+                    primaryDark: '#0B5D57',
                     secondary: '#F59E0B',
                     accent: '#F97316',
                     earth: '#B45309',
                     cream: '#FFFBF0',
                     light: '#FFFBEB',
-                    dark: '#1F2937',
+                    ink: '#1F2937',
                     darkred: '#7F1D1D',
                 },
                 fontFamily: {
@@ -41,12 +40,10 @@
     }
 </script>
 
-<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-<!-- Lucide Icons -->
 <script src="https://unpkg.com/lucide@latest"></script>
 
 <style>
@@ -59,22 +56,24 @@
         overflow-x: clip;
     }
 
-    /* Keeps anchor links from hiding behind the sticky header */
     section[id] { scroll-margin-top: 5rem; }
 
     .hero-overlay {
-        background: linear-gradient(125deg, rgba(15, 118, 110, 0.94) 0%, rgba(185, 84, 9, 0.72) 48%, rgba(245, 158, 11, 0.62) 100%);
+        background:
+            linear-gradient(180deg, rgba(15, 118, 110, 0.35) 0%, rgba(11, 93, 87, 0.72) 55%, rgba(11, 93, 87, 0.94) 100%),
+            linear-gradient(115deg, rgba(185, 84, 9, 0.32) 0%, transparent 60%);
     }
 
-    /* Scroll reveal */
     .reveal {
         opacity: 0;
-        transform: translateY(22px);
-        transition: opacity 0.65s ease, transform 0.65s ease;
+        transform: translateY(24px);
+        transition: opacity 0.7s cubic-bezier(0.2, 0.9, 0.3, 1), transform 0.7s cubic-bezier(0.2, 0.9, 0.3, 1);
     }
     .reveal.active { opacity: 1; transform: translateY(0); }
+    .reveal.d1 { transition-delay: 0.08s; }
+    .reveal.d2 { transition-delay: 0.16s; }
+    .reveal.d3 { transition-delay: 0.24s; }
 
-    /* Nav underline */
     .nav-link { position: relative; }
     .nav-link::after {
         content: '';
@@ -87,17 +86,16 @@
     }
     .nav-link:hover::after { width: 100%; }
 
-    /* Soft pulse on the main CTA */
     .pulse-btn { animation: gentle-pulse 2.6s infinite; }
     @keyframes gentle-pulse {
         0%, 100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.42); }
         50% { box-shadow: 0 0 0 14px rgba(245, 158, 11, 0); }
     }
 
-    /* Partner ticker */
     .scrolling-track {
         display: flex;
-        animation: scroll-left 30s linear infinite;
+        animation: scroll-left 32s linear infinite;
+        width: max-content;
     }
     .scrolling-track:hover { animation-play-state: paused; }
     @keyframes scroll-left {
@@ -105,66 +103,83 @@
         100% { transform: translateX(-50%); }
     }
 
-    /* Mobile drawer */
     .mobile-menu {
         transform: translateX(100%);
-        transition: transform 0.35s ease;
+        transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .mobile-menu.open { transform: translateX(0); }
 
-    /* Card lift */
     .card-hover {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        transition: transform 0.35s ease, box-shadow 0.35s ease;
     }
     .card-hover:hover {
         transform: translateY(-8px);
-        box-shadow: 0 20px 40px -14px rgba(15, 118, 110, 0.22);
+        box-shadow: 0 24px 45px -16px rgba(15, 118, 110, 0.24);
     }
 
-    /* Programme cards */
     .service-card {
         background: #fff;
-        border-radius: 1.8rem;
+        border-radius: 1.6rem;
         overflow: hidden;
-        box-shadow: 0 10px 22px -10px rgba(15, 118, 110, 0.10);
-        border: 1px solid rgba(15, 118, 110, 0.05);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 8px 20px -10px rgba(15, 118, 110, 0.10);
+        border: 1px solid rgba(15, 118, 110, 0.06);
+        transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
         height: 100%;
         display: flex;
         flex-direction: column;
     }
     .service-card:hover {
         transform: translateY(-8px);
-        box-shadow: 0 22px 44px -14px rgba(15, 118, 110, 0.20);
+        box-shadow: 0 24px 45px -16px rgba(15, 118, 110, 0.22);
+        border-color: rgba(245, 158, 11, 0.25);
     }
     .service-img {
         height: 200px;
         width: 100%;
         object-fit: cover;
-        transition: transform 0.45s ease;
+        transition: transform 0.5s cubic-bezier(0.2, 0.9, 0.3, 1);
     }
-    .service-card:hover .service-img { transform: scale(1.04); }
+    .service-card:hover .service-img { transform: scale(1.05); }
 
     .counter-value { font-feature-settings: "tnum"; }
 
-    /* Big outlined number used in the approaches section */
     .step-number {
         font-family: 'Fraunces', Georgia, serif;
         font-weight: 800;
         font-size: 3.6rem;
         line-height: 1;
         color: transparent;
-        -webkit-text-stroke: 1.5px rgba(15, 118, 110, 0.28);
+        -webkit-text-stroke: 1.5px rgba(15, 118, 110, 0.22);
     }
 
-    /* Logo framing */
     .logo-badge {
         background: #fff;
-        border-radius: 0.9rem;
+        border-radius: 0.85rem;
         padding: 0.25rem;
         box-shadow: 0 4px 14px -6px rgba(15, 118, 110, 0.25);
         border: 1px solid rgba(15, 118, 110, 0.10);
     }
+
+    .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        color: #F97316;
+    }
+    .eyebrow::before {
+        content: '';
+        display: inline-block;
+        width: 24px;
+        height: 1px;
+        background: #F97316;
+    }
+
+    details summary::-webkit-details-marker { display: none; }
+    details summary { list-style: none; }
 
     @media (prefers-reduced-motion: reduce) {
         .reveal { opacity: 1; transform: none; transition: none; }
@@ -174,9 +189,9 @@
 </head>
 <body class="bg-cream text-gray-700 antialiased">
 
-<!-- ===== TOP BAR ===== -->
+<!-- TOP BAR -->
 <div class="bg-primary text-white/90 text-sm hidden md:block border-b border-white/10">
-    <div class="max-w-7xl mx-auto px-6 py-2 flex flex-wrap justify-between items-center gap-2">
+    <div class="max-w-7xl mx-auto px-6 py-2.5 flex flex-wrap justify-between items-center gap-2">
         <div class="flex flex-wrap items-center gap-5">
             <a href="tel:+211922331824" class="flex items-center gap-2 hover:text-accent transition"><i data-lucide="phone" class="w-3.5 h-3.5"></i> 0922 331 824</a>
             <a href="mailto:infomea200@gmails.com" class="flex items-center gap-2 hover:text-accent transition"><i data-lucide="mail" class="w-3.5 h-3.5"></i> infomea200@gmails.com</a>
@@ -186,7 +201,7 @@
     </div>
 </div>
 
-<!-- ===== NAVIGATION ===== -->
+<!-- NAVIGATION -->
 <header id="navbar" class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100/60 shadow-sm transition-all duration-300">
     <div class="max-w-7xl mx-auto px-5 md:px-6">
         <div class="flex items-center justify-between h-16 md:h-20">
@@ -223,7 +238,7 @@
     </div>
 </header>
 
-<!-- ===== MOBILE MENU ===== -->
+<!-- MOBILE MENU -->
 <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-[85%] max-w-sm h-full bg-white shadow-2xl z-50 overflow-y-auto">
     <div class="p-6 flex items-center justify-between border-b border-gray-100">
         <div class="flex items-center gap-3">
@@ -256,27 +271,27 @@
 
 <main>
 
-    <!-- ===== HERO ===== -->
+    <!-- HERO -->
     <section id="home" class="relative min-h-screen flex items-center overflow-hidden">
         <img src="assets/miss1.jpeg" alt="Community gathering in South Sudan" class="absolute inset-0 w-full h-full object-cover" loading="eager" />
         <div class="hero-overlay absolute inset-0"></div>
 
-        <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-6 py-16 md:py-24 w-full">
+        <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-6 py-20 md:py-28 w-full">
             <div class="max-w-3xl text-white">
                 <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-5 py-2 rounded-full mb-6 border border-white/20">
                     <span class="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
-                    <span class="text-sm">Registered South Sudanese NGO · RRC Reg. No. 3676</span>
+                    <span class="text-sm">Registered South Sudanese NGO</span>
                 </div>
 
-                <h1 class="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-5">
-                    Mission<br><span class="text-accent">Empowering Africa</span>
+                <h1 class="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] mb-6">
+                    Every person has<br>the power to<br><span class="text-accent">shape their life.</span>
                 </h1>
 
-                <p class="text-base md:text-lg text-white/90 max-w-2xl mb-8 leading-relaxed">
-                    A platform for children, women, youth and grassroots communities in South Sudan — to share information, mobilize resources, and shape their own future.
+                <p class="text-base md:text-lg text-white/90 max-w-2xl mb-9 leading-relaxed">
+                    Mission Empowering Africa works with children, women and youth across South Sudan on education, peace and livelihoods. Everything we do is done with the community.
                 </p>
 
-                <div class="flex flex-wrap gap-4 mb-12">
+                <div class="flex flex-wrap gap-4 mb-14">
                     <a href="#work" class="inline-flex items-center gap-2 bg-accent hover:bg-amber-500 text-white font-semibold px-7 py-3.5 rounded-xl transition pulse-btn shadow-xl">
                         See Our Work <i data-lucide="arrow-right" class="w-5 h-5"></i>
                     </a>
@@ -285,44 +300,43 @@
                     </a>
                 </div>
 
-                <div class="flex flex-wrap gap-6 sm:gap-10 pt-8 border-t border-white/20">
+                <div class="flex flex-wrap gap-8 sm:gap-12 pt-8 border-t border-white/20 max-w-xl">
                     <div>
-                        <div class="text-3xl md:text-4xl font-bold text-accent counter" data-target="4">0</div>
-                        <div class="text-xs text-white/70 uppercase tracking-wider">Thematic Areas</div>
+                        <div class="text-3xl md:text-4xl font-heading font-bold text-accent counter" data-target="4">0</div>
+                        <div class="text-xs text-white/70 uppercase tracking-wider mt-1">Thematic Areas</div>
                     </div>
                     <div>
-                        <div class="text-3xl md:text-4xl font-bold text-accent counter" data-target="3">0</div>
-                        <div class="text-xs text-white/70 uppercase tracking-wider">Core Approaches</div>
+                        <div class="text-3xl md:text-4xl font-heading font-bold text-accent counter" data-target="3">0</div>
+                        <div class="text-xs text-white/70 uppercase tracking-wider mt-1">Ways We Work</div>
                     </div>
                     <div>
-                        <div class="text-3xl md:text-4xl font-bold text-accent">3676</div>
-                        <div class="text-xs text-white/70 uppercase tracking-wider">RRC Reg. No.</div>
+                        <div class="text-3xl md:text-4xl font-heading font-bold text-accent">3676</div>
+                        <div class="text-xs text-white/70 uppercase tracking-wider mt-1">RRC Registration</div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce">
-            <a href="#about" class="text-white/80" aria-label="Scroll to about section">
+        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce hidden md:block">
+            <a href="#about" class="text-white/70 hover:text-white" aria-label="Scroll to about">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
             </a>
         </div>
     </section>
 
-    <!-- ===== PARTNER TICKER ===== -->
-    <section class="bg-light py-5 border-y border-amber-100/50 overflow-hidden">
+    <!-- PARTNER TICKER -->
+    <section class="bg-light py-5 border-y border-amber-100/60 overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 flex items-center gap-8">
-            <span class="text-xs font-semibold uppercase tracking-wider text-gray-500 whitespace-nowrap">We Work With</span>
+            <span class="text-xs font-semibold uppercase tracking-wider text-gray-500 whitespace-nowrap hidden md:block">We Work With</span>
             <div class="flex-1 overflow-hidden">
                 <div class="scrolling-track flex items-center gap-8 whitespace-nowrap">
-                    <span class="text-sm font-bold text-gray-600 flex items-center gap-2"><i data-lucide="landmark" class="w-4 h-4 text-primary"></i> Relief &amp; Rehabilitation Commission</span>
+                    <span class="text-sm font-bold text-gray-600 flex items-center gap-2"><i data-lucide="landmark" class="w-4 h-4 text-primary"></i> Relief and Rehabilitation Commission</span>
                     <span class="text-sm font-bold text-gray-600 flex items-center gap-2"><i data-lucide="users" class="w-4 h-4 text-accent"></i> Community Leaders</span>
                     <span class="text-sm font-bold text-gray-600 flex items-center gap-2"><i data-lucide="flower-2" class="w-4 h-4 text-primary"></i> Women's Groups</span>
                     <span class="text-sm font-bold text-gray-600 flex items-center gap-2"><i data-lucide="zap" class="w-4 h-4 text-accent"></i> Youth Networks</span>
                     <span class="text-sm font-bold text-gray-600 flex items-center gap-2"><i data-lucide="heart-handshake" class="w-4 h-4 text-primary"></i> Grassroots Communities</span>
                     <span class="text-sm font-bold text-gray-600 flex items-center gap-2"><i data-lucide="church" class="w-4 h-4 text-accent"></i> Faith Leaders</span>
-                    <!-- duplicated for a seamless loop -->
-                    <span class="text-sm font-bold text-gray-600 flex items-center gap-2"><i data-lucide="landmark" class="w-4 h-4 text-primary"></i> Relief &amp; Rehabilitation Commission</span>
+                    <span class="text-sm font-bold text-gray-600 flex items-center gap-2"><i data-lucide="landmark" class="w-4 h-4 text-primary"></i> Relief and Rehabilitation Commission</span>
                     <span class="text-sm font-bold text-gray-600 flex items-center gap-2"><i data-lucide="users" class="w-4 h-4 text-accent"></i> Community Leaders</span>
                     <span class="text-sm font-bold text-gray-600 flex items-center gap-2"><i data-lucide="flower-2" class="w-4 h-4 text-primary"></i> Women's Groups</span>
                     <span class="text-sm font-bold text-gray-600 flex items-center gap-2"><i data-lucide="zap" class="w-4 h-4 text-accent"></i> Youth Networks</span>
@@ -333,204 +347,193 @@
         </div>
     </section>
 
-    <!-- ===== ABOUT ===== -->
-    <section id="about" class="py-16 md:py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+    <!-- ABOUT -->
+    <section id="about" class="py-20 md:py-28 bg-white relative overflow-hidden">
+        <div class="hidden lg:block absolute top-24 -left-32 w-80 h-80 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center relative">
 
             <div class="reveal relative">
-                <img src="assets/miss2.jpeg" alt="Women and youth gathered at a community meeting" class="rounded-3xl shadow-xl w-full h-[350px] md:h-[450px] object-cover" loading="lazy" />
-                <div class="absolute -bottom-4 -right-2 bg-primary text-white px-5 py-3 rounded-xl shadow-lg border-2 border-accent/30 max-w-[210px]">
-                    <span class="text-xs block uppercase tracking-wider text-white/70">Registered</span>
-                    <span class="text-lg font-bold text-accent leading-tight">RRC No. 3676</span>
+                <img src="assets/miss2.jpeg" alt="Women and youth at a community meeting" class="rounded-3xl shadow-xl w-full h-[400px] md:h-[500px] object-cover" loading="lazy" />
+                <div class="absolute -bottom-5 -right-3 bg-primary text-white px-5 py-4 rounded-2xl shadow-xl border-2 border-accent/30 max-w-[220px]">
+                    <span class="text-xs block uppercase tracking-wider text-white/70">Legally Registered</span>
+                    <span class="text-lg font-heading font-bold text-accent leading-tight">RRC No. 3676</span>
                 </div>
             </div>
 
-            <div class="reveal">
-                <span class="text-accent font-semibold text-sm uppercase tracking-widest">Who We Are</span>
-                <h2 class="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-primary mt-2 mb-4">
-                    A Platform Built <span class="text-secondary">With Communities</span>
+            <div class="reveal d1">
+                <span class="eyebrow mb-3">Who We Are</span>
+                <h2 class="font-heading text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-primary mt-2 mb-5 leading-[1.15]">
+                    A South Sudanese organisation, working with communities for their own future.
                 </h2>
-                <div class="w-16 h-1 bg-accent rounded mb-5"></div>
+                <div class="w-16 h-1 bg-accent rounded mb-6"></div>
 
-                <p class="text-gray-600 leading-relaxed mb-4">
-                    Mission Empowering Africa (MEA) is a South Sudanese organisation working for gender equality and the rights of every woman, girl, boy and man. We are legally registered by the Relief and Rehabilitation Commission under Chapter 3, Section 10 of the NGO Act, 2016 — Registration No. 3676 — with our headquarters in Juba.
+                <p class="text-gray-600 leading-relaxed mb-4 text-[15.5px]">
+                    Mission Empowering Africa is registered by the Relief and Rehabilitation Commission under the NGO Act of 2016, Registration No. 3676. Our head office is in Juba and we work in communities across South Sudan.
                 </p>
 
-                <p class="text-gray-600 leading-relaxed mb-6">
-                    Our mandate is to empower children, women and youth through education and income-generating skills, so that livelihoods can hold up on their own. We don't parachute in. We sit under the tree, in the market, in the classroom — and we build from there.
+                <p class="text-gray-600 leading-relaxed mb-8 text-[15.5px]">
+                    Our mandate is to empower children, women and youth through education and income-generating skills, so that families can stand on their own over time. We do not arrive with ready answers. We sit with people, listen, and build together.
                 </p>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-8">
                     <div class="flex items-start gap-3">
                         <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center shrink-0"><i data-lucide="eye" class="w-5 h-5 text-primary"></i></div>
                         <div>
-                            <h4 class="font-bold text-primary text-sm">Our Vision</h4>
-                            <p class="text-xs text-gray-500">A peaceful, prosperous, healthy world where everyone has the power to shape their own life.</p>
+                            <h4 class="font-bold text-primary text-sm mb-1">Our Vision</h4>
+                            <p class="text-xs text-gray-500 leading-relaxed">A peaceful, prosperous and healthy world where everyone can shape their own life.</p>
                         </div>
                     </div>
                     <div class="flex items-start gap-3">
                         <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center shrink-0"><i data-lucide="target" class="w-5 h-5 text-accent"></i></div>
                         <div>
-                            <h4 class="font-bold text-primary text-sm">Our Mission</h4>
-                            <p class="text-xs text-gray-500">Give communities a platform to share information, mobilize resources, and push for what they need.</p>
+                            <h4 class="font-bold text-primary text-sm mb-1">Our Mission</h4>
+                            <p class="text-xs text-gray-500 leading-relaxed">Give communities a platform to share information, mobilize resources and ask for what they need.</p>
                         </div>
                     </div>
                     <div class="flex items-start gap-3">
                         <div class="w-10 h-10 bg-secondary/10 rounded-lg flex items-center justify-center shrink-0"><i data-lucide="scroll-text" class="w-5 h-5 text-secondary"></i></div>
                         <div>
-                            <h4 class="font-bold text-primary text-sm">Our Mandate</h4>
-                            <p class="text-xs text-gray-500">Empower children, women and youth through education and income-generating skills.</p>
+                            <h4 class="font-bold text-primary text-sm mb-1">Our Mandate</h4>
+                            <p class="text-xs text-gray-500 leading-relaxed">Empower children, women and youth through education and income-generating skills.</p>
                         </div>
                     </div>
                     <div class="flex items-start gap-3">
                         <div class="w-10 h-10 bg-earth/10 rounded-lg flex items-center justify-center shrink-0"><i data-lucide="route" class="w-5 h-5 text-earth"></i></div>
                         <div>
-                            <h4 class="font-bold text-primary text-sm">Our Approach</h4>
-                            <p class="text-xs text-gray-500">Dialogue, media and community — three ways to build lasting peace.</p>
+                            <h4 class="font-bold text-primary text-sm mb-1">Our Approach</h4>
+                            <p class="text-xs text-gray-500 leading-relaxed">Dialogue, media and community, three ways to build lasting peace.</p>
                         </div>
                     </div>
                 </div>
 
-                <a href="#work" class="inline-flex items-center gap-2 bg-primary hover:bg-secondary text-white font-semibold px-6 py-3 rounded-xl transition shadow">
+                <a href="#work" class="inline-flex items-center gap-2 bg-primary hover:bg-primaryDark text-white font-semibold px-6 py-3 rounded-xl transition shadow-md">
                     What We Do <i data-lucide="arrow-right" class="w-4 h-4"></i>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- ===== OUR WORK / THEMATIC AREAS ===== -->
-    <section id="work" class="py-16 md:py-24 bg-gradient-to-b from-light to-white">
+    <!-- WHAT WE DO -->
+    <section id="work" class="py-20 md:py-28 bg-gradient-to-b from-light to-white">
         <div class="max-w-7xl mx-auto px-6">
 
-            <div class="text-center max-w-3xl mx-auto mb-10 reveal">
+            <div class="text-center max-w-3xl mx-auto mb-14 reveal">
                 <span class="inline-flex items-center gap-2 bg-accent/10 text-accent text-sm font-bold px-5 py-2 rounded-full">
                     <i data-lucide="layers" class="w-4 h-4"></i> What We Do
                 </span>
-                <h2 class="font-heading text-3xl md:text-5xl font-bold text-primary mt-3 mb-3">
-                    Four Areas. <span class="text-accent">One Purpose.</span>
+                <h2 class="font-heading text-3xl md:text-5xl font-bold text-primary mt-3 mb-4 leading-tight">
+                    Four areas, one purpose.
                 </h2>
-                <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded mx-auto mb-4"></div>
-                <p class="text-gray-600">Every programme we run falls under one of these four areas — and every one of them is run with the community, not around it.</p>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded mx-auto mb-5"></div>
+                <p class="text-gray-600 text-[15.5px]">Every programme we run falls into one of these four areas. Each one is built with the community, not around it.</p>
             </div>
 
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
-                <!-- Card 1 — Education -->
-                <div class="service-card group">
+                <!-- Card 1 -->
+                <div class="service-card group reveal">
                     <div class="relative overflow-hidden">
                         <img src="assets/miss3.jpeg" alt="Children in a classroom" class="service-img" loading="lazy" />
-                        <div class="absolute top-3 left-3 bg-white/90 rounded px-2 py-1 flex items-center gap-1">
+                        <div class="absolute top-3 left-3 bg-white/90 backdrop-blur rounded-full px-3 py-1 flex items-center gap-1.5">
                             <i data-lucide="book-open" class="w-3 h-3 text-primary"></i>
                             <span class="text-[10px] font-bold uppercase tracking-wide">Education</span>
                         </div>
                     </div>
-                    <div class="p-5 flex flex-col grow">
-                        <div class="flex items-center gap-2 mb-3">
-                            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center"><i data-lucide="book-open" class="w-5 h-5 text-primary"></i></div>
-                            <h3 class="font-heading font-bold text-primary leading-tight">Education &amp; Advocacy</h3>
-                        </div>
-                        <p class="text-sm text-gray-600 mb-3">Getting children into classrooms, and keeping them there. We also push the policies that make it possible.</p>
-                        <ul class="text-xs text-gray-500 space-y-1 mb-4">
-                            <li class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-primary"></i> School support &amp; learning materials</li>
-                            <li class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-primary"></i> Community awareness campaigns</li>
-                            <li class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-primary"></i> Advocacy with local authorities</li>
-                            <li class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-primary"></i> Literacy &amp; mentorship for youth</li>
+                    <div class="p-6 flex flex-col grow">
+                        <h3 class="font-heading font-bold text-primary text-lg mb-3 leading-snug">Education and Advocacy</h3>
+                        <p class="text-sm text-gray-600 mb-4">Getting children into classrooms and keeping them there. We also push the policies that make this possible.</p>
+                        <ul class="text-xs text-gray-500 space-y-1.5 mb-5">
+                            <li class="flex items-start gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-primary mt-0.5 shrink-0"></i> School support and learning materials</li>
+                            <li class="flex items-start gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-primary mt-0.5 shrink-0"></i> Community awareness campaigns</li>
+                            <li class="flex items-start gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-primary mt-0.5 shrink-0"></i> Advocacy with local authorities</li>
+                            <li class="flex items-start gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-primary mt-0.5 shrink-0"></i> Literacy and mentorship for youth</li>
                         </ul>
-                        <div class="mt-auto flex justify-between items-center pt-3 border-t border-gray-100">
-                            <span class="text-xs text-gray-400">Thematic Area 01</span>
+                        <div class="mt-auto flex justify-between items-center pt-4 border-t border-gray-100">
+                            <span class="text-xs text-gray-400">Area 01</span>
                             <a href="#contact" class="text-accent text-sm font-semibold flex items-center gap-1">Support <i data-lucide="arrow-right" class="w-3 h-3"></i></a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Card 2 — Peacebuilding -->
-                <div class="service-card group">
+                <!-- Card 2 -->
+                <div class="service-card group reveal d1">
                     <div class="relative overflow-hidden">
                         <img src="assets/miss4.jpeg" alt="Community dialogue circle" class="service-img" loading="lazy" />
-                        <div class="absolute top-3 left-3 bg-white/90 rounded px-2 py-1 flex items-center gap-1">
+                        <div class="absolute top-3 left-3 bg-white/90 backdrop-blur rounded-full px-3 py-1 flex items-center gap-1.5">
                             <i data-lucide="dove" class="w-3 h-3 text-accent"></i>
                             <span class="text-[10px] font-bold uppercase tracking-wide">Peace</span>
                         </div>
                     </div>
-                    <div class="p-5 flex flex-col grow">
-                        <div class="flex items-center gap-2 mb-3">
-                            <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center"><i data-lucide="dove" class="w-5 h-5 text-accent"></i></div>
-                            <h3 class="font-heading font-bold text-primary leading-tight">Peacebuilding &amp; Reconciliation</h3>
-                        </div>
-                        <p class="text-sm text-gray-600 mb-3">Conflict will happen. Violence doesn't have to. We help communities find another way through.</p>
-                        <ul class="text-xs text-gray-500 space-y-1 mb-4">
-                            <li class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-accent"></i> Mediation &amp; back-channel diplomacy</li>
-                            <li class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-accent"></i> Training community activists</li>
-                            <li class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-accent"></i> Inter-community dialogues</li>
-                            <li class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-accent"></i> Reconciliation conferences</li>
+                    <div class="p-6 flex flex-col grow">
+                        <h3 class="font-heading font-bold text-primary text-lg mb-3 leading-snug">Peacebuilding and Reconciliation</h3>
+                        <p class="text-sm text-gray-600 mb-4">Conflict will happen. Violence does not have to. We help communities find another path.</p>
+                        <ul class="text-xs text-gray-500 space-y-1.5 mb-5">
+                            <li class="flex items-start gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-accent mt-0.5 shrink-0"></i> Mediation between communities</li>
+                            <li class="flex items-start gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-accent mt-0.5 shrink-0"></i> Training community activists</li>
+                            <li class="flex items-start gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-accent mt-0.5 shrink-0"></i> Inter-community dialogues</li>
+                            <li class="flex items-start gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-accent mt-0.5 shrink-0"></i> Reconciliation conferences</li>
                         </ul>
-                        <div class="mt-auto flex justify-between items-center pt-3 border-t border-gray-100">
-                            <span class="text-xs text-gray-400">Thematic Area 02</span>
+                        <div class="mt-auto flex justify-between items-center pt-4 border-t border-gray-100">
+                            <span class="text-xs text-gray-400">Area 02</span>
                             <a href="#contact" class="text-accent text-sm font-semibold flex items-center gap-1">Support <i data-lucide="arrow-right" class="w-3 h-3"></i></a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Card 3 — Empowerment -->
-                <div class="service-card group">
+                <!-- Card 3 -->
+                <div class="service-card group reveal d2">
                     <div class="relative overflow-hidden">
                         <img src="assets/miss5.jpeg" alt="Women's group meeting" class="service-img" loading="lazy" />
-                        <div class="absolute top-3 left-3 bg-white/90 rounded px-2 py-1 flex items-center gap-1">
+                        <div class="absolute top-3 left-3 bg-white/90 backdrop-blur rounded-full px-3 py-1 flex items-center gap-1.5">
                             <i data-lucide="sparkles" class="w-3 h-3 text-secondary"></i>
                             <span class="text-[10px] font-bold uppercase tracking-wide">Empowerment</span>
                         </div>
                     </div>
-                    <div class="p-5 flex flex-col grow">
-                        <div class="flex items-center gap-2 mb-3">
-                            <div class="w-10 h-10 bg-secondary/10 rounded-lg flex items-center justify-center"><i data-lucide="sparkles" class="w-5 h-5 text-secondary"></i></div>
-                            <h3 class="font-heading font-bold text-primary leading-tight">Youth &amp; Women Empowerment</h3>
-                        </div>
-                        <p class="text-sm text-gray-600 mb-3">Skills that earn money. Voices that get heard. A seat at the table for women and young people.</p>
-                        <ul class="text-xs text-gray-500 space-y-1 mb-4">
-                            <li class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-secondary"></i> Income-generating skills</li>
-                            <li class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-secondary"></i> Leadership &amp; rights training</li>
-                            <li class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-secondary"></i> Women's groups &amp; savings</li>
-                            <li class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-secondary"></i> Youth mentorship</li>
+                    <div class="p-6 flex flex-col grow">
+                        <h3 class="font-heading font-bold text-primary text-lg mb-3 leading-snug">Youth and Women Empowerment</h3>
+                        <p class="text-sm text-gray-600 mb-4">Skills that earn money. Voices that get heard. A real seat at the table for women and young people.</p>
+                        <ul class="text-xs text-gray-500 space-y-1.5 mb-5">
+                            <li class="flex items-start gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-secondary mt-0.5 shrink-0"></i> Income generating skills</li>
+                            <li class="flex items-start gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-secondary mt-0.5 shrink-0"></i> Leadership and rights training</li>
+                            <li class="flex items-start gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-secondary mt-0.5 shrink-0"></i> Women's groups and savings</li>
+                            <li class="flex items-start gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-secondary mt-0.5 shrink-0"></i> Youth mentorship</li>
                         </ul>
-                        <div class="mt-auto flex justify-between items-center pt-3 border-t border-gray-100">
-                            <span class="text-xs text-gray-400">Thematic Area 03</span>
+                        <div class="mt-auto flex justify-between items-center pt-4 border-t border-gray-100">
+                            <span class="text-xs text-gray-400">Area 03</span>
                             <a href="#contact" class="text-accent text-sm font-semibold flex items-center gap-1">Support <i data-lucide="arrow-right" class="w-3 h-3"></i></a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Card 4 — Food Security -->
-                <div class="service-card group">
+                <!-- Card 4 -->
+                <div class="service-card group reveal d3">
                     <div class="relative overflow-hidden">
                         <img src="assets/miss6.jpeg" alt="Shared farming project" class="service-img" loading="lazy" />
-                        <div class="absolute top-3 left-3 bg-white/90 rounded px-2 py-1 flex items-center gap-1">
+                        <div class="absolute top-3 left-3 bg-white/90 backdrop-blur rounded-full px-3 py-1 flex items-center gap-1.5">
                             <i data-lucide="wheat" class="w-3 h-3 text-earth"></i>
                             <span class="text-[10px] font-bold uppercase tracking-wide">Livelihoods</span>
                         </div>
                     </div>
-                    <div class="p-5 flex flex-col grow">
-                        <div class="flex items-center gap-2 mb-3">
-                            <div class="w-10 h-10 bg-earth/10 rounded-lg flex items-center justify-center"><i data-lucide="wheat" class="w-5 h-5 text-earth"></i></div>
-                            <h3 class="font-heading font-bold text-primary leading-tight">Food Security &amp; Livelihoods</h3>
-                        </div>
-                        <p class="text-sm text-gray-600 mb-3">Shared farms, practical training, and support that keeps a family fed through the dry months.</p>
-                        <ul class="text-xs text-gray-500 space-y-1 mb-4">
-                            <li class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-earth"></i> Shared farming projects</li>
-                            <li class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-earth"></i> Practical agriculture training</li>
-                            <li class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-earth"></i> Seeds, tools &amp; inputs</li>
-                            <li class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-earth"></i> Small business support</li>
+                    <div class="p-6 flex flex-col grow">
+                        <h3 class="font-heading font-bold text-primary text-lg mb-3 leading-snug">Food Security and Livelihoods</h3>
+                        <p class="text-sm text-gray-600 mb-4">Shared farms, practical training and support that keeps a family fed through the dry months.</p>
+                        <ul class="text-xs text-gray-500 space-y-1.5 mb-5">
+                            <li class="flex items-start gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-earth mt-0.5 shrink-0"></i> Shared farming projects</li>
+                            <li class="flex items-start gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-earth mt-0.5 shrink-0"></i> Practical agriculture training</li>
+                            <li class="flex items-start gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-earth mt-0.5 shrink-0"></i> Seeds, tools and inputs</li>
+                            <li class="flex items-start gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-earth mt-0.5 shrink-0"></i> Small business support</li>
                         </ul>
-                        <div class="mt-auto flex justify-between items-center pt-3 border-t border-gray-100">
-                            <span class="text-xs text-gray-400">Thematic Area 04</span>
+                        <div class="mt-auto flex justify-between items-center pt-4 border-t border-gray-100">
+                            <span class="text-xs text-gray-400">Area 04</span>
                             <a href="#contact" class="text-accent text-sm font-semibold flex items-center gap-1">Support <i data-lucide="arrow-right" class="w-3 h-3"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Cross-cutting note -->
-            <div class="mt-8 text-center reveal">
-                <div class="inline-flex flex-wrap items-center justify-center gap-3 bg-primary/5 border border-primary/10 rounded-xl px-5 py-3 text-sm text-primary">
+            <div class="mt-12 text-center reveal">
+                <div class="inline-flex flex-wrap items-center justify-center gap-4 bg-primary/5 border border-primary/10 rounded-2xl px-6 py-4 text-sm text-primary">
                     <span class="flex items-center gap-2"><i data-lucide="venus" class="w-4 h-4 text-accent"></i> Gender Equality</span>
                     <span class="hidden sm:inline text-gray-300">|</span>
                     <span class="flex items-center gap-2"><i data-lucide="megaphone" class="w-4 h-4 text-secondary"></i> Community Dialogues</span>
@@ -539,14 +542,13 @@
                 </div>
             </div>
 
-            <!-- CTA strip -->
             <div class="mt-12 text-center reveal">
-                <div class="inline-block w-full max-w-3xl bg-gradient-to-r from-primary to-accent rounded-2xl px-6 py-6 shadow-xl">
-                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center"><i data-lucide="handshake" class="w-6 h-6 text-white"></i></div>
+                <div class="inline-block w-full max-w-3xl bg-gradient-to-r from-primary to-accent rounded-2xl px-8 py-8 shadow-xl">
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-5">
+                        <div class="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center shrink-0"><i data-lucide="handshake" class="w-7 h-7 text-white"></i></div>
                         <div class="text-center sm:text-left">
-                            <h3 class="font-heading text-xl font-bold text-white">Work With Us</h3>
-                            <p class="text-white/80 text-sm">Partner on a programme, fund a community, or volunteer your skills.</p>
+                            <h3 class="font-heading text-xl font-bold text-white mb-1">Work With Us</h3>
+                            <p class="text-white/85 text-sm">Partner on a programme, fund a community, or volunteer your skills.</p>
                         </div>
                         <a href="#contact" class="bg-white text-primary hover:bg-accent hover:text-white font-bold px-6 py-3 rounded-xl transition whitespace-nowrap">Get In Touch</a>
                     </div>
@@ -555,178 +557,637 @@
         </div>
     </section>
 
-    <!-- ===== APPROACHES (Dialogue / Media / Community) ===== -->
-    <section id="approaches" class="py-16 md:py-24 bg-white relative overflow-hidden">
+    <!-- APPROACHES -->
+    <section id="approaches" class="py-20 md:py-28 bg-white relative overflow-hidden">
         <div class="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3 pointer-events-none"></div>
 
         <div class="relative z-10 max-w-7xl mx-auto px-6">
 
-            <div class="text-center max-w-3xl mx-auto mb-12 reveal">
+            <div class="text-center max-w-3xl mx-auto mb-14 reveal">
                 <span class="inline-flex items-center gap-2 bg-primary/10 text-primary text-sm font-bold px-5 py-2 rounded-full">
                     <i data-lucide="compass" class="w-4 h-4"></i> How We Work
                 </span>
-                <h2 class="font-heading text-3xl md:text-5xl font-bold text-primary mt-3 mb-3">
-                    Three Ways We <span class="text-accent">Build Peace</span>
+                <h2 class="font-heading text-3xl md:text-5xl font-bold text-primary mt-3 mb-4 leading-tight">
+                    Three ways we build peace.
                 </h2>
-                <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded mx-auto mb-4"></div>
-                <p class="text-gray-600">
-                    Conflict and differences are inevitable. Violence is not. We move communities away from confrontation and towards cooperative solutions — at every level, from a family dispute to a national negotiation.
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded mx-auto mb-5"></div>
+                <p class="text-gray-600 text-[15.5px] max-w-2xl mx-auto">
+                    Differences are part of life. Violence is not. We move communities away from confrontation and toward solutions they can own. This works at every level, from a family dispute up to a county negotiation.
                 </p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
 
-                <!-- Dialogue -->
-                <div class="card-hover bg-light rounded-2xl p-7 border border-amber-100 reveal relative overflow-hidden">
-                    <div class="step-number absolute top-4 right-5 select-none">01</div>
-                    <div class="w-14 h-14 bg-primary rounded-xl flex items-center justify-center mb-5 shadow-md">
+                <div class="card-hover bg-light rounded-2xl p-8 border border-amber-100 reveal relative overflow-hidden">
+                    <div class="step-number absolute top-5 right-6 select-none">01</div>
+                    <div class="w-14 h-14 bg-primary rounded-xl flex items-center justify-center mb-6 shadow-md">
                         <i data-lucide="messages-square" class="w-7 h-7 text-white"></i>
                     </div>
-                    <h3 class="font-heading text-2xl font-bold text-primary mb-3">Dialogue</h3>
-                    <p class="text-sm text-gray-600 leading-relaxed mb-4">
-                        We bring people together across dividing lines — those in power and those without a platform — to find goals they can actually share. Often that means children, women, youth and local leaders in the same room.
+                    <h3 class="font-heading text-2xl font-bold text-primary mb-4">Dialogue</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed mb-5">
+                        We bring people together across dividing lines, including those with power and those who rarely get a platform, to find goals they can actually share. Often this means children, women, youth and local leaders sitting in the same room.
                     </p>
-                    <ul class="text-xs text-gray-500 space-y-2">
+                    <ul class="text-xs text-gray-500 space-y-2.5">
                         <li class="flex items-start gap-2"><i data-lucide="dot" class="w-4 h-4 text-accent shrink-0"></i> Mediation between communities</li>
-                        <li class="flex items-start gap-2"><i data-lucide="dot" class="w-4 h-4 text-accent shrink-0"></i> Training of activists</li>
-                        <li class="flex items-start gap-2"><i data-lucide="dot" class="w-4 h-4 text-accent shrink-0"></i> Back-channel diplomacy</li>
+                        <li class="flex items-start gap-2"><i data-lucide="dot" class="w-4 h-4 text-accent shrink-0"></i> Training of local activists</li>
+                        <li class="flex items-start gap-2"><i data-lucide="dot" class="w-4 h-4 text-accent shrink-0"></i> Quiet back channel conversations</li>
                     </ul>
                 </div>
 
-                <!-- Media -->
-                <div class="card-hover bg-light rounded-2xl p-7 border border-amber-100 reveal relative overflow-hidden">
-                    <div class="step-number absolute top-4 right-5 select-none">02</div>
-                    <div class="w-14 h-14 bg-accent rounded-xl flex items-center justify-center mb-5 shadow-md">
+                <div class="card-hover bg-light rounded-2xl p-8 border border-amber-100 reveal d1 relative overflow-hidden">
+                    <div class="step-number absolute top-5 right-6 select-none">02</div>
+                    <div class="w-14 h-14 bg-accent rounded-xl flex items-center justify-center mb-6 shadow-md">
                         <i data-lucide="radio" class="w-7 h-7 text-white"></i>
                     </div>
-                    <h3 class="font-heading text-2xl font-bold text-primary mb-3">Media</h3>
-                    <p class="text-sm text-gray-600 leading-relaxed mb-4">
-                        We use radio, TV and social platforms to get people talking about the real causes of violence — and about what it would take to move past them. Conversations that start on air often continue in the market.
+                    <h3 class="font-heading text-2xl font-bold text-primary mb-4">Media</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed mb-5">
+                        Radio, television and social platforms give people a way to talk about the real causes of violence and what it would take to move past them. Conversations that start on air often continue in the market the next morning.
                     </p>
-                    <ul class="text-xs text-gray-500 space-y-2">
-                        <li class="flex items-start gap-2"><i data-lucide="dot" class="w-4 h-4 text-accent shrink-0"></i> TV &amp; radio call-in shows</li>
+                    <ul class="text-xs text-gray-500 space-y-2.5">
+                        <li class="flex items-start gap-2"><i data-lucide="dot" class="w-4 h-4 text-accent shrink-0"></i> TV and radio call in shows</li>
                         <li class="flex items-start gap-2"><i data-lucide="dot" class="w-4 h-4 text-accent shrink-0"></i> Live streaming campaigns</li>
-                        <li class="flex items-start gap-2"><i data-lucide="dot" class="w-4 h-4 text-accent shrink-0"></i> Facebook, Twitter &amp; social media</li>
+                        <li class="flex items-start gap-2"><i data-lucide="dot" class="w-4 h-4 text-accent shrink-0"></i> Facebook, Twitter and community pages</li>
                     </ul>
                 </div>
 
-                <!-- Community -->
-                <div class="card-hover bg-light rounded-2xl p-7 border border-amber-100 reveal relative overflow-hidden">
-                    <div class="step-number absolute top-4 right-5 select-none">03</div>
-                    <div class="w-14 h-14 bg-secondary rounded-xl flex items-center justify-center mb-5 shadow-md">
+                <div class="card-hover bg-light rounded-2xl p-8 border border-amber-100 reveal d2 relative overflow-hidden">
+                    <div class="step-number absolute top-5 right-6 select-none">03</div>
+                    <div class="w-14 h-14 bg-secondary rounded-xl flex items-center justify-center mb-6 shadow-md">
                         <i data-lucide="trees" class="w-7 h-7 text-white"></i>
                     </div>
-                    <h3 class="font-heading text-2xl font-bold text-primary mb-3">Community</h3>
-                    <p class="text-sm text-gray-600 leading-relaxed mb-4">
-                        The hardest work happens close to home. We give neighbours, families and divided groups a safe space to work things out — often under a tree, sometimes on a football pitch.
+                    <h3 class="font-heading text-2xl font-bold text-primary mb-4">Community</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed mb-5">
+                        The hardest work happens close to home. We give neighbours, families and divided groups a safe space to sort things out. Sometimes that is under a tree, sometimes on a football pitch.
                     </p>
-                    <ul class="text-xs text-gray-500 space-y-2">
-                        <li class="flex items-start gap-2"><i data-lucide="dot" class="w-4 h-4 text-accent shrink-0"></i> Under-the-tree dialogues</li>
+                    <ul class="text-xs text-gray-500 space-y-2.5">
+                        <li class="flex items-start gap-2"><i data-lucide="dot" class="w-4 h-4 text-accent shrink-0"></i> Under the tree dialogues</li>
                         <li class="flex items-start gap-2"><i data-lucide="dot" class="w-4 h-4 text-accent shrink-0"></i> Shared farming projects</li>
-                        <li class="flex items-start gap-2"><i data-lucide="dot" class="w-4 h-4 text-accent shrink-0"></i> Soccer, athletics &amp; wrestling</li>
-                        <li class="flex items-start gap-2"><i data-lucide="dot" class="w-4 h-4 text-accent shrink-0"></i> Public debates &amp; conferences</li>
+                        <li class="flex items-start gap-2"><i data-lucide="dot" class="w-4 h-4 text-accent shrink-0"></i> Soccer, athletics and wrestling</li>
+                        <li class="flex items-start gap-2"><i data-lucide="dot" class="w-4 h-4 text-accent shrink-0"></i> Public debates and conferences</li>
                     </ul>
                 </div>
             </div>
 
-            <p class="text-center text-sm text-gray-500 mt-10 max-w-2xl mx-auto reveal">
+            <p class="text-center text-sm text-gray-500 mt-12 max-w-2xl mx-auto reveal">
                 These three approaches run across all four of our thematic areas. A women's savings group is also a dialogue space. A football match is also a peacebuilding tool.
             </p>
         </div>
     </section>
 
-    <!-- ===== WHERE WE WORK ===== -->
-    <section id="where-we-work" class="relative py-20 md:py-28 overflow-hidden">
+    <!-- WHERE WE WORK -->
+    <section id="where-we-work" class="relative py-24 md:py-32 overflow-hidden">
         <img src="assets/miss7.jpeg" alt="South Sudan landscape" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
-        <div class="absolute inset-0 bg-gradient-to-br from-primary/95 via-darkred/80 to-earth/60"></div>
+        <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(15,118,110,0.94) 0%, rgba(127,29,29,0.78) 55%, rgba(180,83,9,0.62) 100%);"></div>
 
         <div class="relative z-10 max-w-7xl mx-auto px-6 text-white">
             <div class="max-w-3xl reveal">
-                <span class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-4 border border-white/20">
+                <span class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-5 py-2 rounded-full mb-5 border border-white/20">
                     <i data-lucide="map-pin" class="w-4 h-4 text-accent"></i> Where We Work
                 </span>
-                <h2 class="font-heading text-3xl md:text-5xl font-bold mb-4">
+                <h2 class="font-heading text-3xl md:text-5xl font-bold mb-5 leading-tight">
                     Rooted in <span class="text-accent">South Sudan</span>
                 </h2>
-                <p class="text-white/90 mb-6 max-w-2xl">
-                    Our head office sits in Juba, but our work reaches into the counties and payams where communities have asked us to come. We go where we're invited, and we stay as long as the work needs us.
+                <p class="text-white/90 mb-8 max-w-2xl text-[15.5px] leading-relaxed">
+                    Our head office sits in Juba, but our work reaches into the counties and payams where communities have invited us. We go where we are asked, and we stay as long as the work needs us.
                 </p>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-8">
-                    <div class="bg-white/10 backdrop-blur-md rounded-lg px-4 py-3 border border-white/20">
+                    <div class="bg-white/10 backdrop-blur-md rounded-xl px-5 py-4 border border-white/20">
                         <p class="text-sm font-semibold">Head Office</p>
-                        <p class="text-xs text-white/60">Juba, Central Equatoria</p>
+                        <p class="text-xs text-white/70 mt-1">Juba, Central Equatoria</p>
                     </div>
-                    <div class="bg-white/10 backdrop-blur-md rounded-lg px-4 py-3 border border-white/20">
+                    <div class="bg-white/10 backdrop-blur-md rounded-xl px-5 py-4 border border-white/20">
                         <p class="text-sm font-semibold">Field Programmes</p>
-                        <p class="text-xs text-white/60">Multiple states &amp; counties</p>
+                        <p class="text-xs text-white/70 mt-1">Multiple states and counties</p>
                     </div>
-                    <div class="bg-white/10 backdrop-blur-md rounded-lg px-4 py-3 border border-white/20">
+                    <div class="bg-white/10 backdrop-blur-md rounded-xl px-5 py-4 border border-white/20">
                         <p class="text-sm font-semibold">Community Hubs</p>
-                        <p class="text-xs text-white/60">Dialogue &amp; training sites</p>
+                        <p class="text-xs text-white/70 mt-1">Dialogue and training sites</p>
                     </div>
                 </div>
 
                 <div class="flex flex-wrap gap-3">
-                    <a href="#contact" class="bg-accent hover:bg-amber-500 text-white font-bold px-6 py-3 rounded-lg transition">Reach Out</a>
-                    <a href="https://maps.google.com/?q=Juba+South+Sudan" target="_blank" rel="noopener" class="border border-white/50 hover:bg-white/10 text-white font-bold px-6 py-3 rounded-lg transition">Find Us on the Map</a>
+                    <a href="#contact" class="bg-accent hover:bg-amber-500 text-white font-bold px-6 py-3 rounded-xl transition shadow-lg">Reach Out</a>
+                    <a href="https://maps.google.com/?q=Juba+South+Sudan" target="_blank" rel="noopener" class="border border-white/50 hover:bg-white/10 text-white font-bold px-6 py-3 rounded-xl transition">Find Us on the Map</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== GALLERY ===== -->
-    <section id="gallery" class="py-16 md:py-24 bg-light relative overflow-hidden">
+    <!-- ===== PRAYER WALL ===== -->
+<section id="prayer" class="py-20 md:py-28 bg-light relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3 pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 w-80 h-80 bg-accent/5 rounded-full blur-3xl -translate-x-1/3 translate-y-1/3 pointer-events-none"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6">
+
+        <div class="text-center max-w-3xl mx-auto mb-14 reveal">
+            <span class="inline-flex items-center gap-2 bg-accent/10 text-accent text-sm font-bold px-5 py-2 rounded-full">
+                <i data-lucide="hand-heart" class="w-4 h-4"></i> Prayer Wall
+            </span>
+            <h2 class="font-heading text-3xl md:text-5xl font-bold text-primary mt-3 mb-4 leading-tight">
+                Pray with us. We mean it.
+            </h2>
+            <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded mx-auto mb-5"></div>
+            <p class="text-gray-600 text-[15.5px]">
+                We believe prayer changes things. Share a request, or take a moment to pray for someone else. Every request is read by our team and prayed over at our gatherings.
+            </p>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+
+            <!-- Prayer Form -->
+            <div class="lg:col-span-5 reveal">
+                <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-7 md:p-8">
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="w-14 h-14 bg-gradient-to-br from-accent to-amber-500 rounded-xl flex items-center justify-center shrink-0 shadow-md">
+                            <i data-lucide="hand-heart" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-primary">Share a Prayer</h3>
+                    </div>
+
+                    <p class="text-sm text-gray-600 leading-relaxed mb-6">
+                        Write as much or as little as you want. You do not need to give your real name. God knows who you are.
+                    </p>
+
+                    <form id="prayer-form" class="space-y-4">
+                        <div>
+                            <label class="block text-xs uppercase tracking-widest text-gray-500 font-semibold mb-2">Your name <span class="text-gray-400 normal-case tracking-normal font-normal">(optional)</span></label>
+                            <input type="text" placeholder="e.g. Grace from Juba" class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm bg-white focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition" />
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-widest text-gray-500 font-semibold mb-2">Your request</label>
+                            <textarea required rows="5" placeholder="What would you like us to pray for?" class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm bg-white focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none resize-none transition"></textarea>
+                        </div>
+                        <label class="flex items-start gap-3 cursor-pointer">
+                            <input type="checkbox" class="mt-1 w-4 h-4 accent-accent" />
+                            <span class="text-xs text-gray-600 leading-relaxed">Keep this request private. Only our prayer team will see it.</span>
+                        </label>
+                        <button type="submit" class="w-full bg-accent hover:bg-amber-500 text-white font-semibold py-3.5 rounded-xl transition flex items-center justify-center gap-2 shadow-md">
+                            <i data-lucide="send" class="w-4 h-4"></i> Send Prayer Request
+                        </button>
+                    </form>
+
+                    <p class="text-xs text-gray-500 italic text-center mt-5 pt-5 border-t border-gray-100">
+                        "Pray without ceasing." — 1 Thessalonians 5:17
+                    </p>
+                </div>
+            </div>
+
+            <!-- Recent Requests -->
+            <div class="lg:col-span-7 reveal d1">
+                <div class="flex items-center justify-between mb-6 flex-wrap gap-3">
+                    <h3 class="font-heading text-2xl font-bold text-primary">Recent Requests</h3>
+                    <span class="inline-flex items-center gap-2 bg-primary/5 text-primary text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full border border-primary/10">
+                        <i data-lucide="users" class="w-3.5 h-3.5"></i> 47 praying now
+                    </span>
+                </div>
+
+                <div class="space-y-4">
+
+                    <article class="card-hover bg-white rounded-2xl p-6 border border-gray-100 reveal">
+                        <div class="flex items-start justify-between gap-4 mb-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-11 h-11 bg-accent/10 rounded-full flex items-center justify-center shrink-0">
+                                    <span class="font-heading text-lg font-bold text-accent">A</span>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-semibold text-primary">A mother in Juba</p>
+                                    <p class="text-[11px] text-gray-500">2 days ago</p>
+                                </div>
+                            </div>
+                            <span class="inline-flex items-center gap-1.5 text-[11px] uppercase tracking-widest text-accent font-semibold bg-accent/10 px-3 py-1 rounded-full">
+                                <i data-lucide="home" class="w-3 h-3"></i> Family
+                            </span>
+                        </div>
+                        <p class="text-gray-600 leading-relaxed mb-4">
+                            Please pray for my son who is sitting his exams this month. He is the first in our family to reach S4, and we are proud of him. Pray for a clear mind and for God to be with him.
+                        </p>
+                        <button class="pray-btn group inline-flex items-center gap-2 text-xs font-semibold text-accent hover:text-primary transition">
+                            <i data-lucide="heart" class="w-3.5 h-3.5 group-hover:scale-110 transition-transform"></i>
+                            <span class="pray-label">I prayed for this</span>
+                            <span class="text-gray-300">·</span>
+                            <span class="pray-count text-gray-500">23</span>
+                        </button>
+                    </article>
+
+                    <article class="card-hover bg-white rounded-2xl p-6 border border-gray-100 reveal">
+                        <div class="flex items-start justify-between gap-4 mb-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-11 h-11 bg-accent/10 rounded-full flex items-center justify-center shrink-0">
+                                    <span class="font-heading text-lg font-bold text-accent">J</span>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-semibold text-primary">Joseph from Yei</p>
+                                    <p class="text-[11px] text-gray-500">4 days ago</p>
+                                </div>
+                            </div>
+                            <span class="inline-flex items-center gap-1.5 text-[11px] uppercase tracking-widest text-accent font-semibold bg-accent/10 px-3 py-1 rounded-full">
+                                <i data-lucide="sprout" class="w-3 h-3"></i> Farm
+                            </span>
+                        </div>
+                        <p class="text-gray-600 leading-relaxed mb-4">
+                            I am asking for prayer for our small farm. The rains have been late this year and we are worried about the harvest. Please pray that God provides for our family and the other families who share this land with us.
+                        </p>
+                        <button class="pray-btn group inline-flex items-center gap-2 text-xs font-semibold text-accent hover:text-primary transition">
+                            <i data-lucide="heart" class="w-3.5 h-3.5 group-hover:scale-110 transition-transform"></i>
+                            <span class="pray-label">I prayed for this</span>
+                            <span class="text-gray-300">·</span>
+                            <span class="pray-count text-gray-500">18</span>
+                        </button>
+                    </article>
+
+                    <article class="card-hover bg-white rounded-2xl p-6 border border-gray-100 reveal">
+                        <div class="flex items-start justify-between gap-4 mb-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-11 h-11 bg-accent/10 rounded-full flex items-center justify-center shrink-0">
+                                    <span class="font-heading text-lg font-bold text-accent">Y</span>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-semibold text-primary">A youth leader</p>
+                                    <p class="text-[11px] text-gray-500">1 week ago</p>
+                                </div>
+                            </div>
+                            <span class="inline-flex items-center gap-1.5 text-[11px] uppercase tracking-widest text-accent font-semibold bg-accent/10 px-3 py-1 rounded-full">
+                                <i data-lucide="users-round" class="w-3 h-3"></i> Youth
+                            </span>
+                        </div>
+                        <p class="text-gray-600 leading-relaxed mb-4">
+                            Pray for the young people in our community. Many are being pulled away by bad company and bad habits. We want them to know Jesus and to have a future here, not to leave for the city and lose themselves.
+                        </p>
+                        <button class="pray-btn group inline-flex items-center gap-2 text-xs font-semibold text-accent hover:text-primary transition">
+                            <i data-lucide="heart" class="w-3.5 h-3.5 group-hover:scale-110 transition-transform"></i>
+                            <span class="pray-label">I prayed for this</span>
+                            <span class="text-gray-300">·</span>
+                            <span class="pray-count text-gray-500">31</span>
+                        </button>
+                    </article>
+
+                    <article class="card-hover bg-white rounded-2xl p-6 border border-gray-100 reveal">
+                        <div class="flex items-start justify-between gap-4 mb-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-11 h-11 bg-earth/10 rounded-full flex items-center justify-center shrink-0">
+                                    <i data-lucide="lock" class="w-4 h-4 text-earth"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-semibold text-primary">Anonymous</p>
+                                    <p class="text-[11px] text-gray-500">1 week ago</p>
+                                </div>
+                            </div>
+                            <span class="inline-flex items-center gap-1.5 text-[11px] uppercase tracking-widest text-accent font-semibold bg-accent/10 px-3 py-1 rounded-full">
+                                <i data-lucide="heart-pulse" class="w-3 h-3"></i> Healing
+                            </span>
+                        </div>
+                        <p class="text-gray-600 leading-relaxed mb-4">
+                            I have been sick for three months and I am tired. Please pray for healing, and for my small children who have no one else to care for them.
+                        </p>
+                        <button class="pray-btn group inline-flex items-center gap-2 text-xs font-semibold text-accent hover:text-primary transition">
+                            <i data-lucide="heart" class="w-3.5 h-3.5 group-hover:scale-110 transition-transform"></i>
+                            <span class="pray-label">I prayed for this</span>
+                            <span class="text-gray-300">·</span>
+                            <span class="pray-count text-gray-500">42</span>
+                        </button>
+                    </article>
+                </div>
+
+                <p class="text-sm text-gray-500 italic mt-6 text-center">
+                    Do you need prayer? We would be honoured to pray with you.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== VOLUNTEER WITH US ===== -->
+<section id="volunteer" class="py-20 md:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="text-center max-w-3xl mx-auto mb-14 reveal">
+            <span class="inline-flex items-center gap-2 bg-secondary/10 text-secondary text-sm font-bold px-5 py-2 rounded-full">
+                <i data-lucide="users" class="w-4 h-4"></i> Volunteer With Us
+            </span>
+            <h2 class="font-heading text-3xl md:text-5xl font-bold text-primary mt-3 mb-4 leading-tight">
+                Come and serve. We need hands.
+            </h2>
+            <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded mx-auto mb-5"></div>
+            <p class="text-gray-600 text-[15.5px]">
+                We are a small team and the work is bigger than us. If you can teach, farm, build, cook, or just show up and be present, there is a place for you here.
+            </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+            <div class="card-hover bg-light rounded-2xl p-8 border border-amber-100 reveal">
+                <div class="w-14 h-14 bg-gradient-to-br from-accent to-amber-500 rounded-xl flex items-center justify-center mb-5 shadow-md">
+                    <i data-lucide="users-round" class="w-6 h-6 text-white"></i>
+                </div>
+                <h3 class="font-heading text-xl font-bold text-primary mb-1">Youth Mentor</h3>
+                <p class="text-xs uppercase tracking-widest text-accent font-semibold mb-4">Weekly · A few hours</p>
+                <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                    Walk with teenagers. Help with Bible study, lead a small group, or just be someone they can talk to. You do not need to be a pastor. You need to care.
+                </p>
+                <ul class="text-xs text-gray-500 space-y-2 mb-5">
+                    <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-accent mt-0.5 shrink-0"></i> Lead a Bible study group</li>
+                    <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-accent mt-0.5 shrink-0"></i> Mentor one or two teens</li>
+                    <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-accent mt-0.5 shrink-0"></i> Help with youth fellowship</li>
+                </ul>
+                <a href="#contact" class="inline-flex items-center gap-1.5 text-accent text-sm font-semibold hover:gap-2.5 transition-all">
+                    Talk to us <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </a>
+            </div>
+
+            <div class="card-hover bg-light rounded-2xl p-8 border border-amber-100 reveal d1">
+                <div class="w-14 h-14 bg-gradient-to-br from-primary to-emerald-600 rounded-xl flex items-center justify-center mb-5 shadow-md">
+                    <i data-lucide="sprout" class="w-6 h-6 text-white"></i>
+                </div>
+                <h3 class="font-heading text-xl font-bold text-primary mb-1">Farm Trainer</h3>
+                <p class="text-xs uppercase tracking-widest text-accent font-semibold mb-4">Seasonal · Planting &amp; harvest</p>
+                <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                    Help families learn better planting, spacing, and storage. If you know how to grow food, you can teach someone else to feed their family. That is worth more than money.
+                </p>
+                <ul class="text-xs text-gray-500 space-y-2 mb-5">
+                    <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-primary mt-0.5 shrink-0"></i> Teach planting techniques</li>
+                    <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-primary mt-0.5 shrink-0"></i> Show better seed spacing</li>
+                    <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-primary mt-0.5 shrink-0"></i> Help with harvest storage</li>
+                </ul>
+                <a href="#contact" class="inline-flex items-center gap-1.5 text-primary text-sm font-semibold hover:gap-2.5 transition-all">
+                    Talk to us <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </a>
+            </div>
+
+            <div class="card-hover bg-light rounded-2xl p-8 border border-amber-100 reveal d2">
+                <div class="w-14 h-14 bg-gradient-to-br from-secondary to-orange-600 rounded-xl flex items-center justify-center mb-5 shadow-md">
+                    <i data-lucide="book-open" class="w-6 h-6 text-white"></i>
+                </div>
+                <h3 class="font-heading text-xl font-bold text-primary mb-1">School Visitor</h3>
+                <p class="text-xs uppercase tracking-widest text-accent font-semibold mb-4">Weekly · One day</p>
+                <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                    Join our team on school visits. Share at assemblies, help children with reading, or lead a short lesson. Many of these pupils have never heard the good news.
+                </p>
+                <ul class="text-xs text-gray-500 space-y-2 mb-5">
+                    <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-secondary mt-0.5 shrink-0"></i> Speak at school assemblies</li>
+                    <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-secondary mt-0.5 shrink-0"></i> Help with reading and writing</li>
+                    <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-secondary mt-0.5 shrink-0"></i> Lead a lesson</li>
+                </ul>
+                <a href="#contact" class="inline-flex items-center gap-1.5 text-secondary text-sm font-semibold hover:gap-2.5 transition-all">
+                    Talk to us <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </a>
+            </div>
+
+            <div class="card-hover bg-light rounded-2xl p-8 border border-amber-100 reveal d3">
+                <div class="w-14 h-14 bg-gradient-to-br from-earth to-amber-700 rounded-xl flex items-center justify-center mb-5 shadow-md">
+                    <i data-lucide="footprints" class="w-6 h-6 text-white"></i>
+                </div>
+                <h3 class="font-heading text-xl font-bold text-primary mb-1">Door to Door Team</h3>
+                <p class="text-xs uppercase tracking-widest text-accent font-semibold mb-4">Saturdays · Afternoons</p>
+                <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                    Walk with us through the villages. Pray with families, share the good news, and follow up with new believers. This is the heart of our work and it is simple: go and speak to people.
+                </p>
+                <ul class="text-xs text-gray-500 space-y-2 mb-5">
+                    <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-earth mt-0.5 shrink-0"></i> Walk with an experienced team</li>
+                    <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-earth mt-0.5 shrink-0"></i> Pray with families</li>
+                    <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-earth mt-0.5 shrink-0"></i> Follow up with new believers</li>
+                </ul>
+                <a href="#contact" class="inline-flex items-center gap-1.5 text-earth text-sm font-semibold hover:gap-2.5 transition-all">
+                    Talk to us <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="mt-12 reveal">
+            <div class="inline-block w-full bg-gradient-to-r from-primary to-accent rounded-2xl px-8 py-8 shadow-xl">
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-5">
+                    <div class="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center shrink-0">
+                        <i data-lucide="message-circle" class="w-7 h-7 text-white"></i>
+                    </div>
+                    <div class="text-center sm:text-left">
+                        <h3 class="font-heading text-xl font-bold text-white mb-1">Not sure where you fit?</h3>
+                        <p class="text-white/85 text-sm">Call us and we will talk it through. Tell us what you are good at and how much time you have.</p>
+                    </div>
+                    <a href="tel:+211922331824" class="bg-white text-primary hover:bg-accent hover:text-white font-bold px-6 py-3 rounded-xl transition whitespace-nowrap">Call Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== UPCOMING EVENTS ===== -->
+<section id="events" class="py-20 md:py-28 bg-cream">
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="text-center max-w-3xl mx-auto mb-14 reveal">
+            <span class="inline-flex items-center gap-2 bg-earth/10 text-earth text-sm font-bold px-5 py-2 rounded-full">
+                <i data-lucide="calendar-heart" class="w-4 h-4"></i> Upcoming Events
+            </span>
+            <h2 class="font-heading text-3xl md:text-5xl font-bold text-primary mt-3 mb-4 leading-tight">
+                On the calendar. Come and join us.
+            </h2>
+            <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded mx-auto mb-5"></div>
+            <p class="text-gray-600 text-[15.5px]">
+                Door to door outreach. School visits. Farm training days. A youth night. A community gathering. Everyone is welcome.
+            </p>
+        </div>
+
+        <div class="space-y-5">
+
+            <article class="card-hover bg-white rounded-2xl overflow-hidden border border-gray-100 grid md:grid-cols-12 reveal">
+                <div class="md:col-span-3 bg-primary text-white p-6 flex md:flex-col items-center md:items-start justify-between md:justify-center gap-2">
+                    <span class="text-[10px] uppercase tracking-widest text-accent font-semibold">October</span>
+                    <span class="font-heading text-5xl md:text-6xl font-bold leading-none">12</span>
+                    <span class="text-xs text-white/60 md:mt-2">Saturday</span>
+                </div>
+                <div class="md:col-span-9 p-6 md:p-8">
+                    <div class="flex flex-wrap items-center gap-3 mb-3">
+                        <span class="inline-flex items-center gap-1.5 text-[11px] uppercase tracking-widest text-accent font-semibold bg-accent/10 px-3 py-1 rounded-full">
+                            <i data-lucide="footprints" class="w-3 h-3"></i> Evangelism
+                        </span>
+                        <span class="text-xs text-gray-500 flex items-center gap-1.5">
+                            <i data-lucide="clock" class="w-3 h-3"></i> 8:00 am
+                        </span>
+                        <span class="text-xs text-gray-500 flex items-center gap-1.5">
+                            <i data-lucide="map-pin" class="w-3 h-3"></i> Juba
+                        </span>
+                    </div>
+                    <h3 class="font-heading text-2xl font-bold text-primary mb-3">Door to Door Outreach</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm">
+                        We walk through the community in small teams, pray with families, and share the good news. Anyone can join. Meet at the office at 8am. Wear comfortable shoes and bring water.
+                    </p>
+                </div>
+            </article>
+
+            <article class="card-hover bg-white rounded-2xl overflow-hidden border border-gray-100 grid md:grid-cols-12 reveal">
+                <div class="md:col-span-3 bg-accent text-white p-6 flex md:flex-col items-center md:items-start justify-between md:justify-center gap-2">
+                    <span class="text-[10px] uppercase tracking-widest text-white/80 font-semibold">October</span>
+                    <span class="font-heading text-5xl md:text-6xl font-bold leading-none">19</span>
+                    <span class="text-xs text-white/70 md:mt-2">Saturday</span>
+                </div>
+                <div class="md:col-span-9 p-6 md:p-8">
+                    <div class="flex flex-wrap items-center gap-3 mb-3">
+                        <span class="inline-flex items-center gap-1.5 text-[11px] uppercase tracking-widest text-accent font-semibold bg-accent/10 px-3 py-1 rounded-full">
+                            <i data-lucide="school" class="w-3 h-3"></i> Schools
+                        </span>
+                        <span class="text-xs text-gray-500 flex items-center gap-1.5">
+                            <i data-lucide="clock" class="w-3 h-3"></i> 10:00 am
+                        </span>
+                        <span class="text-xs text-gray-500 flex items-center gap-1.5">
+                            <i data-lucide="map-pin" class="w-3 h-3"></i> Local School
+                        </span>
+                    </div>
+                    <h3 class="font-heading text-2xl font-bold text-primary mb-3">School Visit</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm">
+                        We visit a primary school to share with the pupils and encourage them in their studies. We need volunteers to help with music, share short testimonies, and read with the younger classes.
+                    </p>
+                </div>
+            </article>
+
+            <article class="card-hover bg-white rounded-2xl overflow-hidden border border-gray-100 grid md:grid-cols-12 reveal">
+                <div class="md:col-span-3 bg-secondary text-white p-6 flex md:flex-col items-center md:items-start justify-between md:justify-center gap-2">
+                    <span class="text-[10px] uppercase tracking-widest text-white/80 font-semibold">November</span>
+                    <span class="font-heading text-5xl md:text-6xl font-bold leading-none">02</span>
+                    <span class="text-xs text-white/70 md:mt-2">Saturday</span>
+                </div>
+                <div class="md:col-span-9 p-6 md:p-8">
+                    <div class="flex flex-wrap items-center gap-3 mb-3">
+                        <span class="inline-flex items-center gap-1.5 text-[11px] uppercase tracking-widest text-accent font-semibold bg-accent/10 px-3 py-1 rounded-full">
+                            <i data-lucide="sprout" class="w-3 h-3"></i> Agriculture
+                        </span>
+                        <span class="text-xs text-gray-500 flex items-center gap-1.5">
+                            <i data-lucide="clock" class="w-3 h-3"></i> 7:00 am
+                        </span>
+                        <span class="text-xs text-gray-500 flex items-center gap-1.5">
+                            <i data-lucide="map-pin" class="w-3 h-3"></i> Community Farm
+                        </span>
+                    </div>
+                    <h3 class="font-heading text-2xl font-bold text-primary mb-3">Farm Training Day</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm">
+                        A practical session on planting and spacing for the coming season. This is for the families in our agriculture programme, but anyone who wants to learn is welcome. Bring your tools if you have them.
+                    </p>
+                </div>
+            </article>
+
+            <article class="card-hover bg-white rounded-2xl overflow-hidden border border-gray-100 grid md:grid-cols-12 reveal">
+                <div class="md:col-span-3 bg-earth text-white p-6 flex md:flex-col items-center md:items-start justify-between md:justify-center gap-2">
+                    <span class="text-[10px] uppercase tracking-widest text-white/80 font-semibold">November</span>
+                    <span class="font-heading text-5xl md:text-6xl font-bold leading-none">16</span>
+                    <span class="text-xs text-white/70 md:mt-2">Saturday</span>
+                </div>
+                <div class="md:col-span-9 p-6 md:p-8">
+                    <div class="flex flex-wrap items-center gap-3 mb-3">
+                        <span class="inline-flex items-center gap-1.5 text-[11px] uppercase tracking-widest text-accent font-semibold bg-accent/10 px-3 py-1 rounded-full">
+                            <i data-lucide="users-round" class="w-3 h-3"></i> Youth
+                        </span>
+                        <span class="text-xs text-gray-500 flex items-center gap-1.5">
+                            <i data-lucide="clock" class="w-3 h-3"></i> 5:00 pm
+                        </span>
+                        <span class="text-xs text-gray-500 flex items-center gap-1.5">
+                            <i data-lucide="map-pin" class="w-3 h-3"></i> Community Hall
+                        </span>
+                    </div>
+                    <h3 class="font-heading text-2xl font-bold text-primary mb-3">Youth Fellowship Night</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm">
+                        An evening of worship, testimonies, and food. Bring a friend. Ages 13 to 25. A relaxed night where young people can be honest about their lives, hear from God, and enjoy being together.
+                    </p>
+                </div>
+            </article>
+
+            <article class="card-hover bg-white rounded-2xl overflow-hidden border border-gray-100 grid md:grid-cols-12 reveal">
+                <div class="md:col-span-3 bg-primary text-white p-6 flex md:flex-col items-center md:items-start justify-between md:justify-center gap-2">
+                    <span class="text-[10px] uppercase tracking-widest text-accent font-semibold">November</span>
+                    <span class="font-heading text-5xl md:text-6xl font-bold leading-none">30</span>
+                    <span class="text-xs text-white/60 md:mt-2">Saturday</span>
+                </div>
+                <div class="md:col-span-9 p-6 md:p-8">
+                    <div class="flex flex-wrap items-center gap-3 mb-3">
+                        <span class="inline-flex items-center gap-1.5 text-[11px] uppercase tracking-widest text-accent font-semibold bg-accent/10 px-3 py-1 rounded-full">
+                            <i data-lucide="utensils" class="w-3 h-3"></i> Community
+                        </span>
+                        <span class="text-xs text-gray-500 flex items-center gap-1.5">
+                            <i data-lucide="clock" class="w-3 h-3"></i> 9:00 am
+                        </span>
+                        <span class="text-xs text-gray-500 flex items-center gap-1.5">
+                            <i data-lucide="map-pin" class="w-3 h-3"></i> Community Centre
+                        </span>
+                    </div>
+                    <h3 class="font-heading text-2xl font-bold text-primary mb-3">Community Gathering</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm">
+                        A day of food, fellowship and shared conversation. Helpers are needed from 9am to prepare and serve. If you can bring food to share, that is a blessing too. Come with a willing heart.
+                    </p>
+                </div>
+            </article>
+        </div>
+
+        <div class="mt-12 text-center reveal">
+            <div class="inline-flex flex-col sm:flex-row items-center gap-5 bg-gradient-to-r from-primary to-accent rounded-2xl px-8 py-6 shadow-lg max-w-2xl">
+                <i data-lucide="calendar-heart" class="w-8 h-8 text-white shrink-0"></i>
+                <p class="text-white text-sm text-center sm:text-left">Want to join an event or need more details? Give us a call and we will tell you exactly where to be.</p>
+                <a href="tel:+211922331824" class="bg-white text-primary font-bold px-5 py-2.5 rounded-xl whitespace-nowrap hover:bg-accent hover:text-white transition">Call Us</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="py-20 md:py-28 bg-light relative overflow-hidden">
         <div class="absolute top-0 left-0 w-72 h-72 bg-accent/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
         <div class="absolute bottom-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl translate-x-1/3 translate-y-1/3 pointer-events-none"></div>
 
         <div class="relative z-10 max-w-7xl mx-auto px-6">
 
-            <div class="text-center max-w-3xl mx-auto mb-10 reveal">
+            <div class="text-center max-w-3xl mx-auto mb-14 reveal">
                 <span class="inline-flex items-center gap-2 bg-accent/10 text-accent text-sm font-bold px-5 py-2 rounded-full">
                     <i data-lucide="camera" class="w-4 h-4"></i> From the Field
                 </span>
-                <h2 class="font-heading text-3xl md:text-5xl font-bold text-primary mt-3 mb-3">
-                    Moments From <span class="text-accent">Our Work</span>
+                <h2 class="font-heading text-3xl md:text-5xl font-bold text-primary mt-3 mb-4 leading-tight">
+                    Moments from our work.
                 </h2>
-                <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded mx-auto mb-4"></div>
-                <p class="text-gray-600">Dialogues under trees, women's savings meetings, football matches, harvest days. This is what it looks like on the ground.</p>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded mx-auto mb-5"></div>
+                <p class="text-gray-600 text-[15.5px]">Dialogues under trees, women's savings meetings, football matches, harvest days. This is what it looks like on the ground.</p>
             </div>
 
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 md:gap-4 reveal" id="gallery-grid">
-                <div class="group relative overflow-hidden rounded-xl shadow-md cursor-zoom-in bg-white aspect-square gallery-item">
+                <div class="group relative overflow-hidden rounded-2xl shadow-md cursor-zoom-in bg-white aspect-square gallery-item">
                     <img src="assets/miss1.jpeg" alt="MEA field work 1" loading="lazy" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition"></div>
                 </div>
-                <div class="group relative overflow-hidden rounded-xl shadow-md cursor-zoom-in bg-white aspect-square gallery-item">
+                <div class="group relative overflow-hidden rounded-2xl shadow-md cursor-zoom-in bg-white aspect-square gallery-item">
                     <img src="assets/miss2.jpeg" alt="MEA field work 2" loading="lazy" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition"></div>
                 </div>
-                <div class="group relative overflow-hidden rounded-xl shadow-md cursor-zoom-in bg-white aspect-square gallery-item">
+                <div class="group relative overflow-hidden rounded-2xl shadow-md cursor-zoom-in bg-white aspect-square gallery-item">
                     <img src="assets/miss3.jpeg" alt="MEA field work 3" loading="lazy" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition"></div>
                 </div>
-                <div class="group relative overflow-hidden rounded-xl shadow-md cursor-zoom-in bg-white aspect-square gallery-item">
+                <div class="group relative overflow-hidden rounded-2xl shadow-md cursor-zoom-in bg-white aspect-square gallery-item">
                     <img src="assets/miss4.jpeg" alt="MEA field work 4" loading="lazy" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition"></div>
                 </div>
-                <div class="group relative overflow-hidden rounded-xl shadow-md cursor-zoom-in bg-white aspect-square gallery-item">
+                <div class="group relative overflow-hidden rounded-2xl shadow-md cursor-zoom-in bg-white aspect-square gallery-item">
                     <img src="assets/miss5.jpeg" alt="MEA field work 5" loading="lazy" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition"></div>
                 </div>
-                <div class="group relative overflow-hidden rounded-xl shadow-md cursor-zoom-in bg-white aspect-square gallery-item">
+                <div class="group relative overflow-hidden rounded-2xl shadow-md cursor-zoom-in bg-white aspect-square gallery-item">
                     <img src="assets/miss6.jpeg" alt="MEA field work 6" loading="lazy" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition"></div>
                 </div>
-                <div class="group relative overflow-hidden rounded-xl shadow-md cursor-zoom-in bg-white aspect-square gallery-item">
+                <div class="group relative overflow-hidden rounded-2xl shadow-md cursor-zoom-in bg-white aspect-square gallery-item">
                     <img src="assets/miss7.jpeg" alt="MEA field work 7" loading="lazy" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition"></div>
                 </div>
-                <div class="group relative overflow-hidden rounded-xl shadow-md cursor-zoom-in bg-white aspect-square gallery-item">
+                <div class="group relative overflow-hidden rounded-2xl shadow-md cursor-zoom-in bg-white aspect-square gallery-item">
                     <img src="assets/miss8.jpeg" alt="MEA field work 8" loading="lazy" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition"></div>
                 </div>
-                <div class="group relative overflow-hidden rounded-xl shadow-md cursor-zoom-in bg-white aspect-square gallery-item">
+                <div class="group relative overflow-hidden rounded-2xl shadow-md cursor-zoom-in bg-white aspect-square gallery-item">
                     <img src="assets/miss9.jpeg" alt="MEA field work 9" loading="lazy" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition"></div>
                 </div>
-                <div class="group relative overflow-hidden rounded-xl shadow-md cursor-zoom-in bg-white aspect-square gallery-item">
+                <div class="group relative overflow-hidden rounded-2xl shadow-md cursor-zoom-in bg-white aspect-square gallery-item">
                     <img src="assets/miss10.jpeg" alt="MEA field work 10" loading="lazy" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition"></div>
                 </div>
             </div>
 
-            <div class="mt-10 text-center reveal">
+            <div class="mt-12 text-center reveal">
                 <button id="gallery-cta" class="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-white font-bold px-8 py-3.5 rounded-xl transition shadow-lg hover:shadow-xl">
                     <i data-lucide="images" class="w-5 h-5"></i> View Full Gallery
                 </button>
@@ -734,7 +1195,6 @@
             </div>
         </div>
 
-        <!-- Lightbox -->
         <div id="lightbox" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/90 backdrop-blur-sm p-4">
             <div class="relative max-w-5xl w-full max-h-[90vh] flex flex-col items-center">
                 <button id="lightbox-close" class="absolute -top-12 right-0 text-white/80 hover:text-white transition p-2" aria-label="Close">
@@ -753,97 +1213,93 @@
         </div>
     </section>
 
-    <!-- ===== SUPPORT ===== -->
-    <section id="support" class="py-16 md:py-24 bg-gradient-to-b from-white to-light">
+    <!-- SUPPORT -->
+    <section id="support" class="py-20 md:py-28 bg-gradient-to-b from-white to-light">
         <div class="max-w-7xl mx-auto px-6">
 
-            <div class="text-center max-w-3xl mx-auto mb-10 reveal">
+            <div class="text-center max-w-3xl mx-auto mb-14 reveal">
                 <span class="inline-flex items-center gap-2 bg-accent/10 text-accent text-sm font-bold px-5 py-2 rounded-full">
                     <i data-lucide="hand-heart" class="w-4 h-4"></i> How You Can Help
                 </span>
-                <h2 class="font-heading text-3xl md:text-5xl font-bold text-primary mt-3 mb-3">
-                    Stand With <span class="text-accent">Communities</span>
+                <h2 class="font-heading text-3xl md:text-5xl font-bold text-primary mt-3 mb-4 leading-tight">
+                    Stand with communities.
                 </h2>
-                <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded mx-auto mb-4"></div>
-                <p class="text-gray-600">We welcome partners, well-wishers and donors who want to see change that lasts.</p>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded mx-auto mb-5"></div>
+                <p class="text-gray-600 text-[15.5px]">We welcome partners, well-wishers and donors who want to see change that lasts.</p>
             </div>
 
-            <div class="grid grid-cols-3 gap-4 max-w-2xl mx-auto mb-10 reveal">
-                <div class="bg-white/80 rounded-xl p-3 text-center shadow-sm">
-                    <p class="text-xl font-bold text-primary counter-value" data-target="4">0</p>
-                    <p class="text-xs text-gray-500 uppercase tracking-wide">Thematic Areas</p>
+            <div class="grid grid-cols-3 gap-4 max-w-2xl mx-auto mb-14 reveal">
+                <div class="bg-white/80 backdrop-blur rounded-2xl p-4 text-center shadow-sm border border-amber-100">
+                    <p class="text-2xl font-heading font-bold text-primary counter-value" data-target="4">0</p>
+                    <p class="text-xs text-gray-500 uppercase tracking-wide mt-1">Thematic Areas</p>
                 </div>
-                <div class="bg-white/80 rounded-xl p-3 text-center shadow-sm">
-                    <p class="text-xl font-bold text-primary counter-value" data-target="3">0</p>
-                    <p class="text-xs text-gray-500 uppercase tracking-wide">Approaches</p>
+                <div class="bg-white/80 backdrop-blur rounded-2xl p-4 text-center shadow-sm border border-amber-100">
+                    <p class="text-2xl font-heading font-bold text-primary counter-value" data-target="3">0</p>
+                    <p class="text-xs text-gray-500 uppercase tracking-wide mt-1">Approaches</p>
                 </div>
-                <div class="bg-white/80 rounded-xl p-3 text-center shadow-sm">
-                    <p class="text-xl font-bold text-primary">3676</p>
-                    <p class="text-xs text-gray-500 uppercase tracking-wide">RRC Reg. No.</p>
+                <div class="bg-white/80 backdrop-blur rounded-2xl p-4 text-center shadow-sm border border-amber-100">
+                    <p class="text-2xl font-heading font-bold text-primary">3676</p>
+                    <p class="text-xs text-gray-500 uppercase tracking-wide mt-1">RRC Reg. No.</p>
                 </div>
             </div>
 
             <div class="grid md:grid-cols-3 gap-6">
 
-                <!-- Give -->
-                <div class="card-hover bg-white rounded-2xl p-6 shadow-md border border-gray-100 reveal">
-                    <div class="w-14 h-14 bg-gradient-to-br from-accent to-amber-500 rounded-xl flex items-center justify-center mb-4">
+                <div class="card-hover bg-white rounded-2xl p-8 shadow-md border border-gray-100 reveal">
+                    <div class="w-14 h-14 bg-gradient-to-br from-accent to-amber-500 rounded-xl flex items-center justify-center mb-5 shadow-md">
                         <i data-lucide="hand-heart" class="w-6 h-6 text-white"></i>
                     </div>
-                    <h3 class="font-heading text-xl font-bold text-primary mb-2">Give</h3>
-                    <p class="text-sm text-gray-600 mb-3">Your gift goes directly into programmes on the ground.</p>
-                    <ul class="text-xs text-gray-500 space-y-1 mb-4">
-                        <li class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-accent"></i> Train a woman in a trade</li>
-                        <li class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-accent"></i> Put a child back in school</li>
-                        <li class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-accent"></i> Fund seeds for a shared farm</li>
+                    <h3 class="font-heading text-xl font-bold text-primary mb-3">Give</h3>
+                    <p class="text-sm text-gray-600 mb-4">Your gift goes directly into programmes on the ground.</p>
+                    <ul class="text-xs text-gray-500 space-y-2 mb-6">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-accent"></i> Train a woman in a trade</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-accent"></i> Put a child back in school</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-accent"></i> Fund seeds for a shared farm</li>
                     </ul>
-                    <a href="#contact" class="block bg-gradient-to-r from-accent to-amber-500 text-white text-center font-semibold py-2.5 rounded-lg transition hover:shadow-lg">Give Today</a>
+                    <a href="#contact" class="block bg-gradient-to-r from-accent to-amber-500 text-white text-center font-semibold py-3 rounded-xl transition hover:shadow-lg">Give Today</a>
                 </div>
 
-                <!-- Volunteer -->
-                <div class="card-hover bg-white rounded-2xl p-6 shadow-md border border-gray-100 reveal">
-                    <div class="w-14 h-14 bg-gradient-to-br from-primary to-emerald-600 rounded-xl flex items-center justify-center mb-4">
+                <div class="card-hover bg-white rounded-2xl p-8 shadow-md border border-gray-100 reveal d1">
+                    <div class="w-14 h-14 bg-gradient-to-br from-primary to-emerald-600 rounded-xl flex items-center justify-center mb-5 shadow-md">
                         <i data-lucide="users" class="w-6 h-6 text-white"></i>
                     </div>
-                    <h3 class="font-heading text-xl font-bold text-primary mb-2">Volunteer</h3>
-                    <p class="text-sm text-gray-600 mb-3">Give your time and skills where they'll count.</p>
-                    <ul class="text-xs text-gray-500 space-y-1 mb-4">
-                        <li class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-primary"></i> Facilitate a dialogue</li>
-                        <li class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-primary"></i> Train a vocational class</li>
-                        <li class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-primary"></i> Coach youth sports</li>
+                    <h3 class="font-heading text-xl font-bold text-primary mb-3">Volunteer</h3>
+                    <p class="text-sm text-gray-600 mb-4">Give your time and skills where they will count.</p>
+                    <ul class="text-xs text-gray-500 space-y-2 mb-6">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-primary"></i> Facilitate a dialogue</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-primary"></i> Train a vocational class</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-primary"></i> Coach youth sports</li>
                     </ul>
-                    <a href="#contact" class="block bg-gradient-to-r from-primary to-emerald-600 text-white text-center font-semibold py-2.5 rounded-lg transition hover:shadow-lg">Volunteer</a>
+                    <a href="#contact" class="block bg-gradient-to-r from-primary to-emerald-600 text-white text-center font-semibold py-3 rounded-xl transition hover:shadow-lg">Volunteer</a>
                 </div>
 
-                <!-- Partner -->
-                <div class="card-hover bg-white rounded-2xl p-6 shadow-md border border-gray-100 reveal">
-                    <div class="w-14 h-14 bg-gradient-to-br from-secondary to-orange-600 rounded-xl flex items-center justify-center mb-4">
+                <div class="card-hover bg-white rounded-2xl p-8 shadow-md border border-gray-100 reveal d2">
+                    <div class="w-14 h-14 bg-gradient-to-br from-secondary to-orange-600 rounded-xl flex items-center justify-center mb-5 shadow-md">
                         <i data-lucide="handshake" class="w-6 h-6 text-white"></i>
                     </div>
-                    <h3 class="font-heading text-xl font-bold text-primary mb-2">Partner</h3>
-                    <p class="text-sm text-gray-600 mb-3">Work with us on a programme, a county, or a whole thematic area.</p>
-                    <ul class="text-xs text-gray-500 space-y-1 mb-4">
-                        <li class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-secondary"></i> Co-fund a project</li>
-                        <li class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-secondary"></i> Share technical expertise</li>
-                        <li class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-secondary"></i> In-kind support</li>
+                    <h3 class="font-heading text-xl font-bold text-primary mb-3">Partner</h3>
+                    <p class="text-sm text-gray-600 mb-4">Work with us on a programme, a county, or a whole thematic area.</p>
+                    <ul class="text-xs text-gray-500 space-y-2 mb-6">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-secondary"></i> Co-fund a project</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-secondary"></i> Share technical expertise</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-secondary"></i> Provide in-kind support</li>
                     </ul>
-                    <a href="#contact" class="block bg-gradient-to-r from-secondary to-orange-600 text-white text-center font-semibold py-2.5 rounded-lg transition hover:shadow-lg">Partner With Us</a>
+                    <a href="#contact" class="block bg-gradient-to-r from-secondary to-orange-600 text-white text-center font-semibold py-3 rounded-xl transition hover:shadow-lg">Partner With Us</a>
                 </div>
             </div>
 
-            <!-- Contact banner -->
-            <div class="mt-12 text-center reveal">
-                <div class="inline-flex flex-col sm:flex-row items-center gap-4 bg-gradient-to-r from-primary to-accent rounded-xl px-6 py-5 shadow-lg max-w-2xl">
+            <div class="mt-14 text-center reveal">
+                <div class="inline-flex flex-col sm:flex-row items-center gap-5 bg-gradient-to-r from-primary to-accent rounded-2xl px-8 py-6 shadow-lg max-w-2xl">
                     <i data-lucide="map-pin" class="w-8 h-8 text-white shrink-0"></i>
-                    <p class="text-white text-sm text-center sm:text-left">Juba, Central Equatoria, South Sudan · RRC Reg. No. 3676</p>
-                    <a href="tel:+211922331824" class="bg-white text-primary font-bold px-5 py-2 rounded-lg whitespace-nowrap">Call Us</a>
+                    <p class="text-white text-sm text-center sm:text-left">Juba, Central Equatoria, South Sudan. RRC Reg. No. 3676</p>
+                    <a href="tel:+211922331824" class="bg-white text-primary font-bold px-5 py-2.5 rounded-xl whitespace-nowrap hover:bg-accent hover:text-white transition">Call Us</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== FAQ ===== -->
-    <section id="faq" class="py-16 md:py-24 bg-gradient-to-b from-white to-light relative overflow-hidden">
+    <!-- FAQ -->
+    <section id="faq" class="py-20 md:py-28 bg-gradient-to-b from-white to-light relative overflow-hidden">
         <div class="absolute top-20 -left-20 w-72 h-72 bg-secondary/10 rounded-full blur-3xl pointer-events-none"></div>
         <div class="absolute bottom-0 -right-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
 
@@ -854,134 +1310,134 @@
                     <span class="inline-flex items-center gap-2 bg-primary/10 text-primary text-sm font-bold px-5 py-2 rounded-full">
                         <i data-lucide="help-circle" class="w-4 h-4"></i> Questions
                     </span>
-                    <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary mt-3 mb-3">
-                        Things People <span class="text-accent">Ask Us</span>
+                    <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary mt-3 mb-4 leading-tight">
+                        Things people ask us.
                     </h2>
-                    <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded mb-5"></div>
-                    <p class="text-gray-600 mb-8">
-                        If your question isn't here, just write to us. We answer every message.
+                    <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded mb-6"></div>
+                    <p class="text-gray-600 mb-8 text-[15.5px]">
+                        If your question is not here, just write to us. We answer every message we receive.
                     </p>
 
-                    <div class="bg-white/80 rounded-2xl p-5 shadow-md border border-gray-100">
-                        <div class="flex items-start gap-3">
+                    <div class="bg-white/80 rounded-2xl p-6 shadow-md border border-gray-100">
+                        <div class="flex items-start gap-3 mb-4">
                             <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center shrink-0">
                                 <i data-lucide="message-circle" class="w-5 h-5 text-accent"></i>
                             </div>
-                            <p class="text-sm text-gray-600">Still unsure about something? We're happy to explain.</p>
+                            <p class="text-sm text-gray-600 pt-2">Still unsure about something? We are happy to explain.</p>
                         </div>
-                        <a href="#contact" class="mt-3 inline-flex items-center gap-2 text-primary font-semibold hover:text-accent transition text-sm">
+                        <a href="#contact" class="inline-flex items-center gap-2 text-primary font-semibold hover:text-accent transition text-sm">
                             Contact Us <i data-lucide="arrow-right" class="w-4 h-4"></i>
                         </a>
                     </div>
 
                     <div class="mt-6 flex flex-wrap gap-3">
-                        <div class="bg-white/80 rounded-xl px-4 py-2 shadow-sm flex items-center gap-2">
+                        <div class="bg-white/80 rounded-xl px-4 py-2.5 shadow-sm flex items-center gap-2">
                             <i data-lucide="shield-check" class="w-4 h-4 text-primary"></i>
                             <span class="text-xs font-semibold text-gray-600">RRC Registered</span>
                         </div>
-                        <div class="bg-white/80 rounded-xl px-4 py-2 shadow-sm flex items-center gap-2">
+                        <div class="bg-white/80 rounded-xl px-4 py-2.5 shadow-sm flex items-center gap-2">
                             <i data-lucide="file-check" class="w-4 h-4 text-primary"></i>
                             <span class="text-xs font-semibold text-gray-600">NGO Act 2016 Compliant</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="lg:col-span-3 reveal">
+                <div class="lg:col-span-3 reveal d1">
                     <div class="space-y-4">
 
                         <details class="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-md">
-                            <summary class="flex items-center justify-between cursor-pointer p-5 md:p-6 list-none">
-                                <span class="font-semibold text-primary text-base md:text-lg">What does MEA actually do?</span>
+                            <summary class="flex items-center justify-between cursor-pointer p-6">
+                                <span class="font-semibold text-primary text-base md:text-lg pr-4">What does MEA actually do?</span>
                                 <span class="ml-4 shrink-0 w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center text-primary group-open:bg-accent group-open:text-white transition-colors">
                                     <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300 group-open:rotate-180"></i>
                                 </span>
                             </summary>
-                            <div class="px-5 md:px-6 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-50 pt-4">
-                                We work in four areas: education and advocacy, peacebuilding and reconciliation, youth and women empowerment, and food security and livelihoods. We run community dialogues, train activists, support women's savings groups, run radio call-in shows, set up shared farms, and organise sports and public debates. Everything we do is done with the community, not handed down to them.
+                            <div class="px-6 pb-6 text-gray-600 text-sm leading-relaxed border-t border-gray-50 pt-4">
+                                We work in four areas: education and advocacy, peacebuilding and reconciliation, youth and women empowerment, and food security and livelihoods. On the ground this looks like community dialogues, training of local activists, women's savings groups, radio call in shows, shared farms, and sports and public debates. Everything is done together with the community.
                             </div>
                         </details>
 
                         <details class="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-md">
-                            <summary class="flex items-center justify-between cursor-pointer p-5 md:p-6 list-none">
-                                <span class="font-semibold text-primary text-base md:text-lg">Where does MEA work?</span>
+                            <summary class="flex items-center justify-between cursor-pointer p-6">
+                                <span class="font-semibold text-primary text-base md:text-lg pr-4">Where does MEA work?</span>
                                 <span class="ml-4 shrink-0 w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center text-primary group-open:bg-accent group-open:text-white transition-colors">
                                     <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300 group-open:rotate-180"></i>
                                 </span>
                             </summary>
-                            <div class="px-5 md:px-6 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-50 pt-4">
-                                Our headquarters are in Juba, Central Equatoria. From there we run programmes in several states and counties across South Sudan, depending on where communities have invited us and where the need is greatest. If you want to know whether we're active in your area, get in touch.
+                            <div class="px-6 pb-6 text-gray-600 text-sm leading-relaxed border-t border-gray-50 pt-4">
+                                Our headquarters is in Juba, Central Equatoria. From there we run programmes in several states and counties across South Sudan, depending on where communities have invited us and where the need is greatest. If you want to know whether we are active in your area, get in touch.
                             </div>
                         </details>
 
                         <details class="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-md">
-                            <summary class="flex items-center justify-between cursor-pointer p-5 md:p-6 list-none">
-                                <span class="font-semibold text-primary text-base md:text-lg">How is MEA registered?</span>
+                            <summary class="flex items-center justify-between cursor-pointer p-6">
+                                <span class="font-semibold text-primary text-base md:text-lg pr-4">How is MEA registered?</span>
                                 <span class="ml-4 shrink-0 w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center text-primary group-open:bg-accent group-open:text-white transition-colors">
                                     <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300 group-open:rotate-180"></i>
                                 </span>
                             </summary>
-                            <div class="px-5 md:px-6 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-50 pt-4">
-                                We are legally registered by the Relief and Rehabilitation Commission (RRC) under Chapter 3, Section 10 of the NGO Act, 2016. Our registration number is 3676. We operate fully within South Sudanese law and follow all child protection and safeguarding requirements.
+                            <div class="px-6 pb-6 text-gray-600 text-sm leading-relaxed border-t border-gray-50 pt-4">
+                                We are legally registered by the Relief and Rehabilitation Commission under Chapter 3, Section 10 of the NGO Act of 2016. Our registration number is 3676. We work within South Sudanese law and follow all child protection and safeguarding requirements.
                             </div>
                         </details>
 
                         <details class="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-md">
-                            <summary class="flex items-center justify-between cursor-pointer p-5 md:p-6 list-none">
-                                <span class="font-semibold text-primary text-base md:text-lg">How can I support MEA?</span>
+                            <summary class="flex items-center justify-between cursor-pointer p-6">
+                                <span class="font-semibold text-primary text-base md:text-lg pr-4">How can I support MEA?</span>
                                 <span class="ml-4 shrink-0 w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center text-primary group-open:bg-accent group-open:text-white transition-colors">
                                     <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300 group-open:rotate-180"></i>
                                 </span>
                             </summary>
-                            <div class="px-5 md:px-6 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-50 pt-4">
-                                Three ways, mainly. You can give — financially or in kind (seeds, tools, school materials, equipment). You can volunteer your time and skills. Or you can partner with us institutionally, whether that's co-funding a programme or bringing technical expertise. Reach out and we'll find the right fit.
+                            <div class="px-6 pb-6 text-gray-600 text-sm leading-relaxed border-t border-gray-50 pt-4">
+                                Three ways mainly. You can give, either financially or in kind, such as seeds, tools, school materials or equipment. You can volunteer your time and skills. Or you can partner with us as an organisation, whether that means co-funding a programme or bringing technical expertise. Reach out and we will find the right fit.
                             </div>
                         </details>
 
                         <details class="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-md">
-                            <summary class="flex items-center justify-between cursor-pointer p-5 md:p-6 list-none">
-                                <span class="font-semibold text-primary text-base md:text-lg">How are donations used?</span>
+                            <summary class="flex items-center justify-between cursor-pointer p-6">
+                                <span class="font-semibold text-primary text-base md:text-lg pr-4">How are donations used?</span>
                                 <span class="ml-4 shrink-0 w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center text-primary group-open:bg-accent group-open:text-white transition-colors">
                                     <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300 group-open:rotate-180"></i>
                                 </span>
                             </summary>
-                            <div class="px-5 md:px-6 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-50 pt-4">
-                                Donations go into programme delivery — training materials, seeds and tools, transport to reach remote communities, radio airtime, and staff who run the work on the ground. We keep overheads low and can share a breakdown of spending with any donor who asks.
+                            <div class="px-6 pb-6 text-gray-600 text-sm leading-relaxed border-t border-gray-50 pt-4">
+                                Donations go into programme delivery: training materials, seeds and tools, transport to reach remote communities, radio airtime, and the staff who run the work on the ground. We keep overheads low and can share a breakdown of spending with any donor who asks.
                             </div>
                         </details>
 
                         <details class="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-md">
-                            <summary class="flex items-center justify-between cursor-pointer p-5 md:p-6 list-none">
-                                <span class="font-semibold text-primary text-base md:text-lg">Can my organisation partner with MEA?</span>
+                            <summary class="flex items-center justify-between cursor-pointer p-6">
+                                <span class="font-semibold text-primary text-base md:text-lg pr-4">Can my organisation partner with MEA?</span>
                                 <span class="ml-4 shrink-0 w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center text-primary group-open:bg-accent group-open:text-white transition-colors">
                                     <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300 group-open:rotate-180"></i>
                                 </span>
                             </summary>
-                            <div class="px-5 md:px-6 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-50 pt-4">
-                                Yes. We partner with NGOs, community-based organisations, government bodies, faith groups and private companies. If you work in any of our four thematic areas, or you have resources that could support them, we'd like to talk. Write to us with a short note about your organisation and what you have in mind.
+                            <div class="px-6 pb-6 text-gray-600 text-sm leading-relaxed border-t border-gray-50 pt-4">
+                                Yes. We partner with NGOs, community based organisations, government bodies, faith groups and private companies. If you work in any of our four thematic areas, or you have resources that could support them, we would like to talk. Write to us with a short note about your organisation and what you have in mind.
                             </div>
                         </details>
 
                         <details class="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-md">
-                            <summary class="flex items-center justify-between cursor-pointer p-5 md:p-6 list-none">
-                                <span class="font-semibold text-primary text-base md:text-lg">Do you work with local leaders and government?</span>
+                            <summary class="flex items-center justify-between cursor-pointer p-6">
+                                <span class="font-semibold text-primary text-base md:text-lg pr-4">Do you work with local leaders and government?</span>
                                 <span class="ml-4 shrink-0 w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center text-primary group-open:bg-accent group-open:text-white transition-colors">
                                     <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300 group-open:rotate-180"></i>
                                 </span>
                             </summary>
-                            <div class="px-5 md:px-6 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-50 pt-4">
-                                Always. Nothing we do works without the buy-in of local leaders, elders, women's representatives and youth. We also work with county and state authorities where it helps the work move forward. Community ownership is the whole point — if it only belongs to us, it won't outlast us.
+                            <div class="px-6 pb-6 text-gray-600 text-sm leading-relaxed border-t border-gray-50 pt-4">
+                                Always. Nothing we do works without the buy in of local leaders, elders, women's representatives and youth. We also work with county and state authorities where it helps the work move forward. Community ownership is central. If a programme only belongs to us, it will not outlast us.
                             </div>
                         </details>
 
                         <details class="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-md">
-                            <summary class="flex items-center justify-between cursor-pointer p-5 md:p-6 list-none">
-                                <span class="font-semibold text-primary text-base md:text-lg">Can I visit a project site?</span>
+                            <summary class="flex items-center justify-between cursor-pointer p-6">
+                                <span class="font-semibold text-primary text-base md:text-lg pr-4">Can I visit a project site?</span>
                                 <span class="ml-4 shrink-0 w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center text-primary group-open:bg-accent group-open:text-white transition-colors">
                                     <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300 group-open:rotate-180"></i>
                                 </span>
                             </summary>
-                            <div class="px-5 md:px-6 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-50 pt-4">
-                                Yes, with advance notice. We ask visitors to coordinate with us first so we can arrange transport, inform the community, and make sure your visit doesn't disrupt an ongoing activity. Donors and partners are welcome to see the work first-hand.
+                            <div class="px-6 pb-6 text-gray-600 text-sm leading-relaxed border-t border-gray-50 pt-4">
+                                Yes, with advance notice. We ask visitors to coordinate with us first so we can arrange transport, inform the community, and make sure your visit does not disrupt an ongoing activity. Donors and partners are welcome to see the work first hand.
                             </div>
                         </details>
 
@@ -991,60 +1447,60 @@
         </div>
     </section>
 
-    <!-- ===== CONTACT ===== -->
-    <section id="contact" class="py-16 md:py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-10 items-start">
+    <!-- CONTACT -->
+    <section id="contact" class="py-20 md:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-start">
 
             <div class="reveal">
-                <span class="text-accent text-sm uppercase tracking-widest font-semibold">Get In Touch</span>
-                <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary mt-2 mb-4">
-                    Let's Build Something <span class="text-accent">That Lasts</span>
+                <span class="eyebrow mb-3">Get In Touch</span>
+                <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary mt-2 mb-5 leading-tight">
+                    Let us build something <span class="text-accent">that lasts.</span>
                 </h2>
-                <div class="w-16 h-1 bg-accent rounded mb-5"></div>
-                <p class="text-gray-600 mb-6">
-                    Whether you want to give, volunteer, partner, or just understand more about what we do — write to us. We answer every message.
+                <div class="w-16 h-1 bg-accent rounded mb-6"></div>
+                <p class="text-gray-600 mb-8 text-[15.5px] leading-relaxed">
+                    Whether you want to give, volunteer, partner, or simply understand more about what we do, write to us. We answer every message.
                 </p>
 
-                <div class="space-y-4">
-                    <div class="flex items-start gap-3">
-                        <div class="w-10 h-10 bg-light rounded-lg flex items-center justify-center shrink-0"><i data-lucide="map-pin" class="w-5 h-5 text-accent"></i></div>
+                <div class="space-y-5">
+                    <div class="flex items-start gap-4">
+                        <div class="w-11 h-11 bg-light rounded-xl flex items-center justify-center shrink-0"><i data-lucide="map-pin" class="w-5 h-5 text-accent"></i></div>
                         <div>
-                            <h4 class="font-semibold text-primary">Head Office</h4>
+                            <h4 class="font-semibold text-primary text-sm mb-1">Head Office</h4>
                             <p class="text-sm text-gray-500">Juba, Central Equatoria, South Sudan</p>
                         </div>
                     </div>
-                    <div class="flex items-start gap-3">
-                        <div class="w-10 h-10 bg-light rounded-lg flex items-center justify-center shrink-0"><i data-lucide="phone" class="w-5 h-5 text-accent"></i></div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-11 h-11 bg-light rounded-xl flex items-center justify-center shrink-0"><i data-lucide="phone" class="w-5 h-5 text-accent"></i></div>
                         <div>
-                            <h4 class="font-semibold text-primary">Phone</h4>
-                            <a href="tel:+211922331824" class="text-sm text-gray-500 hover:text-accent block transition">0922 331 824</a>
+                            <h4 class="font-semibold text-primary text-sm mb-1">Phone</h4>
+                            <a href="tel:+211922331824" class="text-sm text-gray-500 hover:text-accent transition">0922 331 824</a>
                         </div>
                     </div>
-                    <div class="flex items-start gap-3">
-                        <div class="w-10 h-10 bg-light rounded-lg flex items-center justify-center shrink-0"><i data-lucide="mail" class="w-5 h-5 text-accent"></i></div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-11 h-11 bg-light rounded-xl flex items-center justify-center shrink-0"><i data-lucide="mail" class="w-5 h-5 text-accent"></i></div>
                         <div>
-                            <h4 class="font-semibold text-primary">Email</h4>
+                            <h4 class="font-semibold text-primary text-sm mb-1">Email</h4>
                             <a href="mailto:infomea200@gmails.com" class="text-sm text-gray-500 hover:text-accent transition break-all">infomea200@gmails.com</a>
                         </div>
                     </div>
-                    <div class="flex items-start gap-3">
-                        <div class="w-10 h-10 bg-light rounded-lg flex items-center justify-center shrink-0"><i data-lucide="badge-check" class="w-5 h-5 text-accent"></i></div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-11 h-11 bg-light rounded-xl flex items-center justify-center shrink-0"><i data-lucide="badge-check" class="w-5 h-5 text-accent"></i></div>
                         <div>
-                            <h4 class="font-semibold text-primary">Registration</h4>
-                            <p class="text-sm text-gray-500">RRC Reg. No. 3676 · NGO Act, 2016</p>
+                            <h4 class="font-semibold text-primary text-sm mb-1">Registration</h4>
+                            <p class="text-sm text-gray-500">RRC Reg. No. 3676. NGO Act, 2016.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="reveal bg-light rounded-2xl shadow-lg p-6 border border-gray-100">
-                <h3 class="font-heading text-xl font-bold text-primary mb-4">Send Us a Message</h3>
-                <form id="contact-form" class="space-y-3">
-                    <div class="grid sm:grid-cols-2 gap-3">
-                        <input type="text" required placeholder="Your name" class="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-sm bg-white focus:border-accent outline-none transition" />
-                        <input type="email" required placeholder="Email address" class="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-sm bg-white focus:border-accent outline-none transition" />
+            <div class="reveal d1 bg-light rounded-2xl shadow-lg p-7 md:p-8 border border-gray-100">
+                <h3 class="font-heading text-xl font-bold text-primary mb-5">Send Us a Message</h3>
+                <form id="contact-form" class="space-y-4">
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <input type="text" required placeholder="Your name" class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm bg-white focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition" />
+                        <input type="email" required placeholder="Email address" class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm bg-white focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition" />
                     </div>
-                    <select class="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-sm bg-white focus:border-accent outline-none transition text-gray-500">
+                    <select class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm bg-white focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition text-gray-500">
                         <option disabled selected>What is this about?</option>
                         <option>Donation</option>
                         <option>Volunteering</option>
@@ -1053,8 +1509,8 @@
                         <option>Visit a project</option>
                         <option>Something else</option>
                     </select>
-                    <textarea required rows="4" placeholder="Your message..." class="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-sm bg-white focus:border-accent outline-none resize-none transition"></textarea>
-                    <button type="submit" class="w-full bg-accent hover:bg-amber-500 text-white font-semibold py-3 rounded-lg transition flex items-center justify-center gap-2">
+                    <textarea required rows="5" placeholder="Your message..." class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm bg-white focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none resize-none transition"></textarea>
+                    <button type="submit" class="w-full bg-accent hover:bg-amber-500 text-white font-semibold py-3.5 rounded-xl transition flex items-center justify-center gap-2 shadow-md">
                         Send Message <i data-lucide="send" class="w-4 h-4"></i>
                     </button>
                 </form>
@@ -1063,23 +1519,22 @@
     </section>
 </main>
 
-<!-- ===== FOOTER ===== -->
+<!-- FOOTER -->
 <footer class="bg-primary text-white relative overflow-hidden">
     <div class="absolute top-0 left-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
     <div class="absolute bottom-0 right-0 w-80 h-80 bg-secondary/10 rounded-full blur-3xl translate-x-1/3 translate-y-1/3 pointer-events-none"></div>
 
-    <!-- Newsletter -->
     <div class="relative z-10 border-b border-white/10">
-        <div class="max-w-7xl mx-auto px-6 py-10 md:py-12">
+        <div class="max-w-7xl mx-auto px-6 py-12 md:py-14">
             <div class="grid md:grid-cols-2 gap-8 items-center">
                 <div>
-                    <h3 class="font-heading text-2xl md:text-3xl font-bold mb-2">Keep In Touch</h3>
-                    <p class="text-white/70">Occasional updates on our programmes, our communities, and where your support goes.</p>
+                    <h3 class="font-heading text-2xl md:text-3xl font-bold mb-3">Keep in touch</h3>
+                    <p class="text-white/70 text-[15px]">Occasional updates on our programmes, our communities, and where your support goes.</p>
                 </div>
                 <form class="flex flex-col sm:flex-row gap-3" onsubmit="return false;">
                     <input type="email" required placeholder="Your email address"
-                           class="flex-1 px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:border-accent focus:bg-white/20 transition" />
-                    <button type="submit" class="inline-flex items-center justify-center gap-2 bg-accent hover:bg-amber-500 text-white font-bold px-6 py-3 rounded-xl transition shadow-lg">
+                           class="flex-1 px-4 py-3.5 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:border-accent focus:bg-white/20 transition" />
+                    <button type="submit" class="inline-flex items-center justify-center gap-2 bg-accent hover:bg-amber-500 text-white font-bold px-6 py-3.5 rounded-xl transition shadow-lg">
                         <i data-lucide="mail" class="w-4 h-4"></i> Subscribe
                     </button>
                 </form>
@@ -1087,12 +1542,11 @@
         </div>
     </div>
 
-    <!-- Main footer -->
-    <div class="relative z-10 max-w-7xl mx-auto px-6 py-12 md:py-16">
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div class="relative z-10 max-w-7xl mx-auto px-6 py-14 md:py-16">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
 
             <div class="lg:pr-4">
-                <div class="flex items-center gap-3 mb-4">
+                <div class="flex items-center gap-3 mb-5">
                     <div class="logo-badge w-14 h-14 flex items-center justify-center overflow-hidden">
                         <img src="assets/misslogo.jpeg" alt="MEA logo" class="w-full h-full object-contain" />
                     </div>
@@ -1101,28 +1555,75 @@
                         <span class="block text-[10px] uppercase tracking-wider text-white/60">Mission Empowering Africa</span>
                     </div>
                 </div>
-                <p class="text-white/70 text-sm leading-relaxed mb-4">
+                <p class="text-white/70 text-sm leading-relaxed mb-5">
                     A South Sudanese NGO working on gender equality, peacebuilding, education, empowerment and food security. Registered with the RRC, Reg. No. 3676.
                 </p>
-                <div class="flex space-x-3">
-                    <a href="#" class="w-9 h-9 bg-white/10 hover:bg-accent rounded-lg flex items-center justify-center transition" aria-label="Facebook">
-                        <i data-lucide="facebook" class="w-4 h-4"></i>
+
+                <!-- SOCIAL & CONTACT ICONS -->
+                <div class="flex flex-wrap gap-3">
+
+                    <!-- Facebook -->
+                    <a href="#" aria-label="Facebook"
+                       class="group w-11 h-11 bg-white/15 hover:bg-[#1877F2] rounded-xl flex items-center justify-center transition-all duration-300 border border-white/25 hover:border-[#1877F2]">
+                        <svg class="w-5 h-5 text-white group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
                     </a>
-                    <a href="#" class="w-9 h-9 bg-white/10 hover:bg-accent rounded-lg flex items-center justify-center transition" aria-label="Twitter">
-                        <i data-lucide="twitter" class="w-4 h-4"></i>
+
+                    <!-- YouTube -->
+                    <a href="#" aria-label="YouTube"
+                       class="group w-11 h-11 bg-white/15 hover:bg-[#FF0000] rounded-xl flex items-center justify-center transition-all duration-300 border border-white/25 hover:border-[#FF0000]">
+                        <svg class="w-5 h-5 text-white group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        </svg>
                     </a>
-                    <a href="#" class="w-9 h-9 bg-white/10 hover:bg-accent rounded-lg flex items-center justify-center transition" aria-label="Instagram">
-                        <i data-lucide="instagram" class="w-4 h-4"></i>
+
+                    <!-- Instagram -->
+                    <a href="#" aria-label="Instagram"
+                       class="group w-11 h-11 bg-white/15 hover:bg-gradient-to-br hover:from-[#833AB4] hover:via-[#FD1D1D] hover:to-[#FCB045] rounded-xl flex items-center justify-center transition-all duration-300 border border-white/25 hover:border-transparent">
+                        <svg class="w-5 h-5 text-white group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+                        </svg>
                     </a>
-                    <a href="#" class="w-9 h-9 bg-white/10 hover:bg-accent rounded-lg flex items-center justify-center transition" aria-label="YouTube">
-                        <i data-lucide="youtube" class="w-4 h-4"></i>
+
+                    <!-- Twitter / X -->
+                    <a href="#" aria-label="Twitter X"
+                       class="group w-11 h-11 bg-white/15 hover:bg-black rounded-xl flex items-center justify-center transition-all duration-300 border border-white/25 hover:border-black">
+                        <svg class="w-5 h-5 text-white group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </a>
+
+                    <!-- WhatsApp -->
+                    <a href="https://wa.me/211922331824" aria-label="WhatsApp"
+                       class="group w-11 h-11 bg-white/15 hover:bg-[#25D366] rounded-xl flex items-center justify-center transition-all duration-300 border border-white/25 hover:border-[#25D366]">
+                        <svg class="w-5 h-5 text-white group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                        </svg>
+                    </a>
+
+                    <!-- Email -->
+                    <a href="mailto:infomea200@gmails.com" aria-label="Email"
+                       class="group w-11 h-11 bg-white/15 hover:bg-accent rounded-xl flex items-center justify-center transition-all duration-300 border border-white/25 hover:border-accent">
+                        <svg class="w-5 h-5 text-white group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="4" width="20" height="16" rx="2"/>
+                            <path d="m22 6-10 7L2 6"/>
+                        </svg>
+                    </a>
+
+                    <!-- Phone -->
+                    <a href="tel:+211922331824" aria-label="Phone"
+                       class="group w-11 h-11 bg-white/15 hover:bg-accent rounded-xl flex items-center justify-center transition-all duration-300 border border-white/25 hover:border-accent">
+                        <svg class="w-5 h-5 text-white group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                        </svg>
                     </a>
                 </div>
             </div>
 
             <div>
-                <h4 class="font-bold text-lg mb-4 text-white">Quick Links</h4>
-                <ul class="space-y-2 text-sm text-white/70">
+                <h4 class="font-bold text-lg mb-5 text-white">Quick Links</h4>
+                <ul class="space-y-2.5 text-sm text-white/70">
                     <li><a href="#home" class="hover:text-accent transition inline-flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3"></i> Home</a></li>
                     <li><a href="#about" class="hover:text-accent transition inline-flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3"></i> About</a></li>
                     <li><a href="#work" class="hover:text-accent transition inline-flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3"></i> Our Work</a></li>
@@ -1133,32 +1634,32 @@
             </div>
 
             <div>
-                <h4 class="font-bold text-lg mb-4 text-white">What We Do</h4>
-                <ul class="space-y-2 text-sm text-white/70">
-                    <li><a href="#work" class="hover:text-accent transition inline-flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3"></i> Education &amp; Advocacy</a></li>
-                    <li><a href="#work" class="hover:text-accent transition inline-flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3"></i> Peacebuilding &amp; Reconciliation</a></li>
-                    <li><a href="#work" class="hover:text-accent transition inline-flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3"></i> Youth &amp; Women Empowerment</a></li>
-                    <li><a href="#work" class="hover:text-accent transition inline-flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3"></i> Food Security &amp; Livelihoods</a></li>
+                <h4 class="font-bold text-lg mb-5 text-white">What We Do</h4>
+                <ul class="space-y-2.5 text-sm text-white/70">
+                    <li><a href="#work" class="hover:text-accent transition inline-flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3"></i> Education and Advocacy</a></li>
+                    <li><a href="#work" class="hover:text-accent transition inline-flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3"></i> Peacebuilding and Reconciliation</a></li>
+                    <li><a href="#work" class="hover:text-accent transition inline-flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3"></i> Youth and Women Empowerment</a></li>
+                    <li><a href="#work" class="hover:text-accent transition inline-flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3"></i> Food Security and Livelihoods</a></li>
                 </ul>
             </div>
 
             <div>
-                <h4 class="font-bold text-lg mb-4 text-white">Contact</h4>
-                <ul class="space-y-3 text-sm text-white/70">
+                <h4 class="font-bold text-lg mb-5 text-white">Contact</h4>
+                <ul class="space-y-4 text-sm text-white/70">
                     <li class="flex items-start gap-3">
-                        <div class="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center shrink-0"><i data-lucide="map-pin" class="w-4 h-4 text-accent"></i></div>
-                        <span>Juba, Central Equatoria,<br>South Sudan</span>
+                        <div class="w-9 h-9 bg-white/10 rounded-lg flex items-center justify-center shrink-0"><i data-lucide="map-pin" class="w-4 h-4 text-accent"></i></div>
+                        <span class="pt-1.5">Juba, Central Equatoria,<br>South Sudan</span>
                     </li>
                     <li class="flex items-center gap-3">
-                        <div class="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center shrink-0"><i data-lucide="phone" class="w-4 h-4 text-accent"></i></div>
+                        <div class="w-9 h-9 bg-white/10 rounded-lg flex items-center justify-center shrink-0"><i data-lucide="phone" class="w-4 h-4 text-accent"></i></div>
                         <a href="tel:+211922331824" class="hover:text-accent transition">0922 331 824</a>
                     </li>
                     <li class="flex items-center gap-3">
-                        <div class="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center shrink-0"><i data-lucide="mail" class="w-4 h-4 text-accent"></i></div>
+                        <div class="w-9 h-9 bg-white/10 rounded-lg flex items-center justify-center shrink-0"><i data-lucide="mail" class="w-4 h-4 text-accent"></i></div>
                         <a href="mailto:infomea200@gmails.com" class="hover:text-accent transition break-all">infomea200@gmails.com</a>
                     </li>
                     <li class="flex items-center gap-3">
-                        <div class="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center shrink-0"><i data-lucide="badge-check" class="w-4 h-4 text-accent"></i></div>
+                        <div class="w-9 h-9 bg-white/10 rounded-lg flex items-center justify-center shrink-0"><i data-lucide="badge-check" class="w-4 h-4 text-accent"></i></div>
                         <span>RRC Reg. No. 3676</span>
                     </li>
                 </ul>
@@ -1167,9 +1668,9 @@
     </div>
 
     <div class="relative z-10 border-t border-white/10">
-        <div class="max-w-7xl mx-auto px-6 py-5 flex flex-col md:flex-row justify-between items-center gap-3">
+        <div class="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-3">
             <p class="text-xs text-white/50">© <span id="year"></span> Mission Empowering Africa (MEA). All rights reserved.</p>
-            <div class="flex space-x-4 text-xs text-white/50">
+            <div class="flex space-x-5 text-xs text-white/50">
                 <a href="#" class="hover:text-accent transition">Privacy Policy</a>
                 <a href="#" class="hover:text-accent transition">Terms of Use</a>
                 <a href="#" class="hover:text-accent transition">Safeguarding</a>
@@ -1179,76 +1680,116 @@
 </footer>
 
 <script>
-    lucide.createIcons();
+(function () {
+    'use strict';
 
-    /* ---------- Footer year ---------- */
-    document.getElementById('year').textContent = new Date().getFullYear();
+    /* ============================================================
+       0. ICONS AND FOOTER YEAR
+       ============================================================ */
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
 
-    /* ---------- Mobile menu ---------- */
-    const menuToggle = document.getElementById('menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
+    const yearEl = document.getElementById('year');
+    if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+    }
+
+    /* ============================================================
+       1. MOBILE MENU
+       ============================================================ */
+    const menuToggle  = document.getElementById('menu-toggle');
+    const mobileMenu  = document.getElementById('mobile-menu');
     const menuOverlay = document.getElementById('menu-overlay');
-    const menuClose = document.getElementById('menu-close');
+    const menuClose   = document.getElementById('menu-close');
     const mobileLinks = document.querySelectorAll('.mobile-link');
 
     function openMobileMenu() {
+        if (!mobileMenu || !menuOverlay) return;
         mobileMenu.classList.add('open');
         menuOverlay.classList.remove('hidden');
         document.body.style.overflow = 'hidden';
     }
+
     function closeMobileMenu() {
+        if (!mobileMenu || !menuOverlay) return;
         mobileMenu.classList.remove('open');
         menuOverlay.classList.add('hidden');
         document.body.style.overflow = '';
     }
-    menuToggle.addEventListener('click', openMobileMenu);
-    menuClose.addEventListener('click', closeMobileMenu);
-    menuOverlay.addEventListener('click', closeMobileMenu);
-    mobileLinks.forEach(link => link.addEventListener('click', closeMobileMenu));
 
-    /* ---------- Scroll reveal ---------- */
+    if (menuToggle)  menuToggle.addEventListener('click', openMobileMenu);
+    if (menuClose)   menuClose.addEventListener('click', closeMobileMenu);
+    if (menuOverlay) menuOverlay.addEventListener('click', closeMobileMenu);
+
+    mobileLinks.forEach(function (link) {
+        link.addEventListener('click', closeMobileMenu);
+    });
+
+    /* ============================================================
+       2. SCROLL REVEAL
+       ============================================================ */
     const revealElements = document.querySelectorAll('.reveal');
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-                revealObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-    revealElements.forEach(el => revealObserver.observe(el));
 
-    /* ---------- Number counters ---------- */
-    const counters = document.querySelectorAll('.counter, .counter-value');
-    const counterObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (!entry.isIntersecting) return;
-            const el = entry.target;
-            const target = parseInt(el.dataset.target, 10);
-            if (isNaN(target)) return;
-
-            let current = 0;
-            const step = Math.max(1, Math.ceil(target / 35));
-            const tick = () => {
-                current += step;
-                if (current >= target) {
-                    el.textContent = target;
-                    clearInterval(interval);
-                } else {
-                    el.textContent = current;
+    if (revealElements.length) {
+        const revealObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    revealObserver.unobserve(entry.target);
                 }
-            };
-            const interval = setInterval(tick, 28);
-            counterObserver.unobserve(el);
-        });
-    }, { threshold: 0.4 });
-    counters.forEach(c => counterObserver.observe(c));
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-    /* ---------- Smooth anchor scrolling ---------- */
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        revealElements.forEach(function (el) {
+            revealObserver.observe(el);
+        });
+    }
+
+    /* ============================================================
+       3. NUMBER COUNTERS
+       ============================================================ */
+    const counters = document.querySelectorAll('.counter, .counter-value');
+
+    if (counters.length) {
+        const counterObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (!entry.isIntersecting) return;
+
+                const el = entry.target;
+                const target = parseInt(el.dataset.target, 10);
+                if (isNaN(target)) return;
+
+                let current = 0;
+                const step = Math.max(1, Math.ceil(target / 35));
+
+                const interval = setInterval(function () {
+                    current += step;
+                    if (current >= target) {
+                        el.textContent = target;
+                        clearInterval(interval);
+                    } else {
+                        el.textContent = current;
+                    }
+                }, 28);
+
+                counterObserver.unobserve(el);
+            });
+        }, { threshold: 0.4 });
+
+        counters.forEach(function (c) {
+            counterObserver.observe(c);
+        });
+    }
+
+    /* ============================================================
+       4. SMOOTH ANCHOR SCROLL
+       ============================================================ */
+    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
         anchor.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
-            if (href === '#') return;
+            if (!href || href === '#') return;
+
             const target = document.querySelector(href);
             if (target) {
                 e.preventDefault();
@@ -1257,61 +1798,82 @@
         });
     });
 
-    /* ---------- Navbar shadow on scroll ---------- */
+    /* ============================================================
+       5. NAVBAR SHADOW ON SCROLL
+       ============================================================ */
     const navbar = document.getElementById('navbar');
-    let ticking = false;
-    window.addEventListener('scroll', () => {
-        if (ticking) return;
-        ticking = true;
-        requestAnimationFrame(() => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('shadow-md', 'bg-white/95');
-                navbar.classList.remove('bg-white/90');
-            } else {
-                navbar.classList.remove('shadow-md', 'bg-white/95');
-                navbar.classList.add('bg-white/90');
-            }
-            ticking = false;
-        });
-    }, { passive: true });
 
-    /* ---------- Contact form (demo only) ---------- */
+    if (navbar) {
+        let ticking = false;
+
+        window.addEventListener('scroll', function () {
+            if (ticking) return;
+            ticking = true;
+
+            requestAnimationFrame(function () {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('shadow-md', 'bg-white/95');
+                    navbar.classList.remove('bg-white/90');
+                } else {
+                    navbar.classList.remove('shadow-md', 'bg-white/95');
+                    navbar.classList.add('bg-white/90');
+                }
+                ticking = false;
+            });
+        }, { passive: true });
+    }
+
+    /* ============================================================
+       6. CONTACT FORM (demo submit)
+       ============================================================ */
     const contactForm = document.getElementById('contact-form');
+
     if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
+        contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
+
             const button = contactForm.querySelector('button[type="submit"]');
+            if (!button) return;
+
             const original = button.innerHTML;
             button.innerHTML = '<i data-lucide="check" class="w-4 h-4"></i> Message sent';
             button.disabled = true;
-            lucide.createIcons();
-            setTimeout(() => {
+
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+
+            setTimeout(function () {
                 button.innerHTML = original;
                 button.disabled = false;
                 contactForm.reset();
-                lucide.createIcons();
+                if (typeof lucide !== 'undefined') lucide.createIcons();
             }, 2200);
         });
     }
 
-    /* ---------- Gallery lightbox ---------- */
+    /* ============================================================
+       7. GALLERY LIGHTBOX
+       ============================================================ */
     (function () {
         const items = document.querySelectorAll('.gallery-item');
         const lightbox = document.getElementById('lightbox');
+
         if (!items.length || !lightbox) return;
 
-        const boxImg = document.getElementById('lightbox-img');
-        const closeBtn = document.getElementById('lightbox-close');
-        const prevBtn = document.getElementById('lightbox-prev');
-        const nextBtn = document.getElementById('lightbox-next');
+        const boxImg    = document.getElementById('lightbox-img');
+        const closeBtn  = document.getElementById('lightbox-close');
+        const prevBtn   = document.getElementById('lightbox-prev');
+        const nextBtn   = document.getElementById('lightbox-next');
         const openAllBtn = document.getElementById('gallery-cta');
+
+        if (!boxImg || !closeBtn || !prevBtn || !nextBtn) return;
+
         const total = items.length;
         let index = 0;
 
-        const dataAt = (i) => {
+        function dataAt(i) {
             const img = items[i].querySelector('img');
-            return { src: img.src, alt: img.alt };
-        };
+            return { src: img ? img.src : '', alt: img ? img.alt : '' };
+        }
 
         function show(i) {
             index = (i + total) % total;
@@ -1319,32 +1881,93 @@
             boxImg.src = d.src;
             boxImg.alt = d.alt;
         }
+
         function open(i) {
             show(i);
             lightbox.classList.remove('hidden');
             lightbox.classList.add('flex');
             document.body.style.overflow = 'hidden';
         }
+
         function close() {
             lightbox.classList.add('hidden');
             lightbox.classList.remove('flex');
             document.body.style.overflow = '';
         }
 
-        items.forEach((item, i) => item.addEventListener('click', () => open(i)));
-        closeBtn.addEventListener('click', close);
-        nextBtn.addEventListener('click', () => show(index + 1));
-        prevBtn.addEventListener('click', () => show(index - 1));
-        lightbox.addEventListener('click', (e) => { if (e.target === lightbox) close(); });
-        document.addEventListener('keydown', (e) => {
-            if (lightbox.classList.contains('hidden')) return;
-            if (e.key === 'Escape') close();
-            if (e.key === 'ArrowRight') show(index + 1);
-            if (e.key === 'ArrowLeft') show(index - 1);
+        items.forEach(function (item, i) {
+            item.addEventListener('click', function () { open(i); });
         });
-        if (openAllBtn) openAllBtn.addEventListener('click', () => open(0));
+
+        closeBtn.addEventListener('click', close);
+        nextBtn.addEventListener('click', function () { show(index + 1); });
+        prevBtn.addEventListener('click', function () { show(index - 1); });
+
+        lightbox.addEventListener('click', function (e) {
+            if (e.target === lightbox) close();
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (lightbox.classList.contains('hidden')) return;
+            if (e.key === 'Escape')     close();
+            if (e.key === 'ArrowRight') show(index + 1);
+            if (e.key === 'ArrowLeft')  show(index - 1);
+        });
+
+        if (openAllBtn) {
+            openAllBtn.addEventListener('click', function () { open(0); });
+        }
     })();
 
+    /* ============================================================
+       8. PRAYER WALL
+       ============================================================ */
+
+    /* 8a. "I prayed for this" button — increments once, then locks */
+    document.addEventListener('click', function (e) {
+        const btn = e.target.closest('.pray-btn');
+        if (!btn || btn.dataset.prayed === '1') return;
+
+        const countEl = btn.querySelector('.pray-count');
+        const labelEl = btn.querySelector('.pray-label');
+
+        if (countEl) {
+            countEl.textContent = (parseInt(countEl.textContent, 10) || 0) + 1;
+        }
+        if (labelEl) {
+            labelEl.textContent = 'You prayed';
+        }
+
+        btn.dataset.prayed = '1';
+        btn.classList.remove('text-accent');
+        btn.classList.add('text-primary');
+    });
+
+    /* 8b. Prayer form (demo submit) */
+    const prayerForm = document.getElementById('prayer-form');
+
+    if (prayerForm) {
+        prayerForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const button = prayerForm.querySelector('button[type="submit"]');
+            if (!button) return;
+
+            const original = button.innerHTML;
+            button.innerHTML = '<i data-lucide="check" class="w-4 h-4"></i> Request received';
+            button.disabled = true;
+
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+
+            setTimeout(function () {
+                button.innerHTML = original;
+                button.disabled = false;
+                prayerForm.reset();
+                if (typeof lucide !== 'undefined') lucide.createIcons();
+            }, 2400);
+        });
+    }
+})();
 </script>
 </body>
 </html>
